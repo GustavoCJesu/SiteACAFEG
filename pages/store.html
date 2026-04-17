@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cafés especiais da ACAFEG – Associação dos Cafeicultores de Andradas e Região. Compre diretamente do produtor com rastreabilidade e qualidade SCA." />
+  <title>Nossos Cafés | ACAFEG – Cafés Especiais do Sul de Minas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+   <link rel="stylesheet" href="../style/storeStyle.css">
+</head>
+
+<body>
+
+  <!-- ─── Navbar ──────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <a href="index.html" class="navbar-logo">ACA<span>FEG</span></a>
+    <ul class="navbar-links" id="nav-menu">
+      <li><a href="../index.html">A Associação</a></li>
+      <li><a href="aboutUs.html">Quem somos</a></li>
+      <li><a href="../pages/associates.html">Associados</a></li>
+      <li><a href="store.html" class="active">Nosso Café</a></li>
+      <li><a href="contact.html">Contato</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-cart-btn" id="cart-toggle-btn" aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        Carrinho
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── Cart Overlay + Drawer ────────────────────────────────────── -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Carrinho de compras" aria-modal="true">
+    <div class="cart-header">
+      <div class="cart-header-left">
+        <h2 class="cart-title">Carrinho</h2>
+        <span class="cart-items-count" id="cart-items-count">0 itens</span>
+      </div>
+      <button class="cart-close" id="cart-close" aria-label="Fechar carrinho">✕</button>
+    </div>
+
+    <div class="cart-body" id="cart-body">
+      <div class="cart-empty" id="cart-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <div>
+          <strong>Seu carrinho está vazio</strong>
+          <p>Adicione cafés especiais para continuar</p>
+        </div>
+      </div>
+      <div id="cart-items-list"></div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-summary">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">R$ 0,00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Frete</span>
+          <span>Combinado via WhatsApp</span>
+        </div>
+        <div class="cart-summary-row total">
+          <span>Total</span>
+          <span class="cart-total-value" id="cart-total">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button class="btn-whatsapp" id="btn-whatsapp" disabled>
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L.057 23.386a.5.5 0 00.611.601l5.598-1.456A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.031-1.384l-.36-.214-3.724.969.997-3.634-.235-.374A9.793 9.793 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+        </svg>
+        Finalizar pelo WhatsApp
+      </button>
+
+      <p class="cart-footer-note">
+        Você será redirecionado para o WhatsApp com seu pedido completo. O frete será combinado com nossa equipe.
+      </p>
+    </div>
+  </aside>
+
+  <!-- ─── Toast ─────────────────────────────────────────────────────── -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <div class="toast-dot"></div>
+    <span id="toast-msg">Produto adicionado ao carrinho</span>
+  </div>
+
+  <main>
+
+    <!-- ─── Hero ─────────────────────────────────────────────────── -->
+    <section class="hero-inner" aria-label="Cabeçalho da página de produtos">
+      <div class="container">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Início</a>
+          <span>›</span>
+          <span>Nosso Café</span>
+        </nav>
+        <div class="ornament">
+          <div class="ornament-line"></div>
+          <span class="tag">Cafés Especiais</span>
+        </div>
+        <h1>
+          Do sul de Minas<br>
+          para a sua <em>xícara</em>
+        </h1>
+        <p class="lead">
+          Cada lote rastreável, cultivado em altitude por famílias de Andradas e região.
+          Compre direto da origem, com qualidade verificada e história real.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── Filter Bar ─────────────────────────────────────────────── -->
+    <div class="filter-bar" role="navigation" aria-label="Filtros de produto">
+      <div class="container">
+        <div class="filter-inner">
+          <div class="filter-tabs" role="group" aria-label="Filtrar por categoria">
+            <button class="filter-tab active" data-filter="todos" aria-pressed="true">Todos</button>
+            <button class="filter-tab" data-filter="natural" aria-pressed="false">Natural</button>
+            <button class="filter-tab" data-filter="lavado" aria-pressed="false">Lavado</button>
+            <button class="filter-tab" data-filter="honey" aria-pressed="false">Honey</button>
+            <button class="filter-tab" data-filter="blend" aria-pressed="false">Blend</button>
+          </div>
+          <p class="filter-count">
+            Exibindo <strong id="count-visible">3</strong> cafés
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Products ──────────────────────────────────────────────── -->
+    <section class="section-produtos" aria-label="Lista de produtos">
+      <div class="container">
+        <div class="produtos-grid" id="produtos-grid">
+          <!-- Cards rendered by JS from PRODUCTS array -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ──────────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="navbar-logo">ACA<span>FEG</span></div>
+          <p>Associação dos Cafeicultores Especiais de Andradas e Região. Cultivando excelência no sul de Minas Gerais desde 2012.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">in</a>
+            <a href="#" aria-label="Facebook">fb</a>
+            <a href="#" aria-label="YouTube">yt</a>
+            <a href="#" aria-label="WhatsApp">wh</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="quem-somos.html">A Associação</a></li>
+            <li><a href="#produtores">Produtores</a></li>
+            <li><a href="produtos.html">Nosso Café</a></li>
+            <li><a href="#institucional">Missão</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="#">Certificações</a></li>
+            <li><a href="#">Imprensa</a></li>
+            <li><a href="#">Seja Associado</a></li>
+            <li><a href="#">Relatório Anual</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@acafeg.com.br">contato@acafeg.com.br</a></li>
+            <li><a href="tel:+5535999456608">(35) 9 9999-9999</a></li>
+            <li><a href="#">Andradas – MG, 37795-000</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 ACAFEG – Todos os direitos reservados.</p>
+        <p>Feito com ☕ no sul de Minas Gerais</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Script ───────────────────────────────────────────────────── -->
+  <script>
+    // ================================================================
+    // PRODUTOS — Adicione, remova ou edite produtos aqui.
+    // Cada objeto segue a estrutura abaixo. Campos obrigatórios:
+    //   id, nome, categoria (para filtro), produtor, descricao,
+    //   notas (array), processo, pontuacao, peso, preco, emEstoque, imagem
+    // ================================================================
+    const PRODUCTS = [
+      {
+        id: 1,
+        nome: "Fazenda Boa Vista — Cereja",
+        categoria: "natural",
+        produtor: "Família Rodrigues · Andradas, MG",
+        descricao: "Café natural de altitude com secagem lenta em terreiro suspenso. Resultado de 30 anos de dedicação da família Rodrigues ao manejo de cereja madura.",
+        notas: ["Chocolate amargo", "Amêndoas", "Frutas vermelhas"],
+        processo: "Natural",
+        pontuacao: "86,5 SCA",
+        peso: "250g",
+        preco: 48.90,
+        emEstoque: true,
+        destaque: false,
+        imagem: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=700&q=80"
+      },
+      {
+        id: 2,
+        nome: "Sítio São Miguel — Honey Gold",
+        categoria: "honey",
+        produtor: "Família Almeida · Monte Sião, MG",
+        descricao: "Processamento honey com mucilagem preservada, resultando em corpo denso e doçura natural intensa. Colheita seletiva 100% manual.",
+        notas: ["Caramelo", "Pêssego", "Mel de flor"],
+        processo: "Honey",
+        pontuacao: "87,25 SCA",
+        peso: "250g",
+        preco: 54.90,
+        emEstoque: true,
+        destaque: true,
+        imagem: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80"
+      },
+      {
+        id: 3,
+        nome: "Alto da Serra — Lavado",
+        categoria: "lavado",
+        produtor: "Família Cunha · Poços de Caldas, MG",
+        descricao: "Processo lavado com fermentação aeróbica de 36 horas. Grão de alta altitude que expressa com clareza a acidez cítrica característica do terroir.",
+        notas: ["Laranja", "Chá floral", "Acidez cítrica viva"],
+        processo: "Lavado",
+        pontuacao: "85,75 SCA",
+        peso: "250g",
+        preco: 46.90,
+        emEstoque: true,
+        destaque: false,
+        imagem: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80"
+      }
+      // ── Para adicionar novo produto, copie um bloco acima e cole aqui ──
+    ];
+
+    // WhatsApp number (apenas dígitos, com DDI)
+    const WHATSAPP_NUMBER = "5535999456608";
+
+    // ================================================================
+    // State
+    // ================================================================
+    let cart = {}; // { productId: quantity }
+
+    // ================================================================
+    // Render Products
+    // ================================================================
+    function renderProducts(filterCategory = "todos") {
+      const grid = document.getElementById("produtos-grid");
+      grid.innerHTML = "";
+
+      const filtered = filterCategory === "todos"
+        ? PRODUCTS
+        : PRODUCTS.filter(p => p.categoria === filterCategory);
+
+      document.getElementById("count-visible").textContent = filtered.length;
+
+      filtered.forEach((product, index) => {
+        const delay = index < 3 ? `fade-up-delay-${index}` : "";
+        const card = document.createElement("article");
+        card.className = `produto-card fade-up ${delay}`;
+        card.dataset.id = product.id;
+        card.dataset.categoria = product.categoria;
+        card.setAttribute("aria-label", `Produto: ${product.nome}`);
+
+        const estoqueClass = product.emEstoque ? "em-estoque" : "";
+        const estoqueText = product.emEstoque ? "Em estoque" : "Esgotado";
+
+        const notasTags = product.notas
+          .map(n => `<span class="nota-tag">${n}</span>`)
+          .join("");
+
+        const destaqueHTML = product.destaque
+          ? `<span class="badge badge-destaque">Destaque</span>`
+          : "";
+
+        const precoFormatado = product.preco.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+
+        card.innerHTML = `
+          <div class="produto-img-wrap">
+            <img
+              src="${product.imagem}"
+              alt="Foto do ${product.nome}"
+              loading="lazy"
+            />
+            <div class="produto-badges">
+              <span class="badge badge-pontuacao">${product.pontuacao}</span>
+              <span class="badge badge-processo">${product.processo}</span>
+              ${destaqueHTML}
+            </div>
+            <span class="produto-estoque ${estoqueClass}">${estoqueText}</span>
+          </div>
+          <div class="produto-body">
+            <p class="produto-categoria">${product.categoria}</p>
+            <h3 class="produto-nome">${product.nome}</h3>
+            <p class="produto-origem">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              ${product.produtor}
+            </p>
+            <p class="produto-descricao">${product.descricao}</p>
+            <div class="produto-notas" role="list" aria-label="Notas de degustação">
+              ${notasTags}
+            </div>
+            <div class="produto-footer">
+              <div class="produto-preco-wrap">
+                <span class="produto-peso">${product.peso}</span>
+                <span class="produto-preco"><sup>R$</sup>${precoFormatado}</span>
+              </div>
+              <div class="produto-actions">
+                <div class="qty-control" role="group" aria-label="Quantidade">
+                  <button class="qty-btn" data-action="dec" data-id="${product.id}" aria-label="Diminuir quantidade">−</button>
+                  <span class="qty-value" id="qty-${product.id}" aria-live="polite">1</span>
+                  <button class="qty-btn" data-action="inc" data-id="${product.id}" aria-label="Aumentar quantidade">+</button>
+                </div>
+                <button
+                  class="btn-add-cart"
+                  data-id="${product.id}"
+                  ${!product.emEstoque ? "disabled" : ""}
+                  aria-label="Adicionar ${product.nome} ao carrinho"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+                  </svg>
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      // Re-observe new cards for animation
+      document.querySelectorAll(".fade-up:not(.visible)").forEach(el => observer.observe(el));
+
+      // Bind qty buttons
+      grid.querySelectorAll(".qty-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = parseInt(btn.dataset.id);
+          const valEl = document.getElementById(`qty-${id}`);
+          let val = parseInt(valEl.textContent);
+          if (btn.dataset.action === "inc") val = Math.min(val + 1, 99);
+          if (btn.dataset.action === "dec") val = Math.max(val - 1, 1);
+          valEl.textContent = val;
+        });
+      });
+
+      // Bind add-to-cart buttons
+      grid.querySelectorAll(".btn-add-cart").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = parseInt(btn.dataset.id);
+          const qty = parseInt(document.getElementById(`qty-${id}`).textContent);
+          addToCart(id, qty);
+
+          btn.classList.add("added");
+          btn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Adicionado
+          `;
+          setTimeout(() => {
+            btn.classList.remove("added");
+            btn.innerHTML = `
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              Adicionar
+            `;
+          }, 2000);
+        });
+      });
+    }
+
+    // ================================================================
+    // Cart Logic
+    // ================================================================
+    function addToCart(productId, qty) {
+      cart[productId] = (cart[productId] || 0) + qty;
+      updateCartUI();
+
+      const product = PRODUCTS.find(p => p.id === productId);
+      showToast(`"${product.nome}" adicionado ao carrinho`);
+    }
+
+    function updateCartUI() {
+      const totalItems = Object.values(cart).reduce((a, b) => a + b, 0);
+      const badge = document.getElementById("cart-badge");
+      badge.textContent = totalItems;
+      badge.style.transform = "scale(1.3)";
+      setTimeout(() => badge.style.transform = "scale(1)", 200);
+
+      // Items count label
+      document.getElementById("cart-items-count").textContent =
+        `${totalItems} ${totalItems === 1 ? "item" : "itens"}`;
+
+      // Show/hide empty state
+      const hasItems = totalItems > 0;
+      document.getElementById("cart-empty").style.display = hasItems ? "none" : "flex";
+      document.getElementById("btn-whatsapp").disabled = !hasItems;
+
+      // Render cart items
+      const listEl = document.getElementById("cart-items-list");
+      listEl.innerHTML = "";
+
+      let subtotal = 0;
+
+      Object.entries(cart).forEach(([id, qty]) => {
+        if (qty <= 0) return;
+        const product = PRODUCTS.find(p => p.id === parseInt(id));
+        if (!product) return;
+
+        const lineTotal = product.preco * qty;
+        subtotal += lineTotal;
+
+        const lineTotalFormatado = lineTotal.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+
+        const item = document.createElement("div");
+        item.className = "cart-item";
+        item.dataset.productId = id;
+
+        item.innerHTML = `
+          <img class="cart-item-img" src="${product.imagem}" alt="${product.nome}" loading="lazy" />
+          <div class="cart-item-info">
+            <p class="cart-item-name">${product.nome}</p>
+            <p class="cart-item-detail">${product.peso} · ${product.processo}</p>
+            <div class="cart-item-qty-control" role="group" aria-label="Quantidade no carrinho">
+              <button class="cart-item-qty-btn" data-action="dec" data-id="${id}" aria-label="Remover um">−</button>
+              <span class="cart-item-qty-val" aria-live="polite">${qty}</span>
+              <button class="cart-item-qty-btn" data-action="inc" data-id="${id}" aria-label="Adicionar um">+</button>
+            </div>
+          </div>
+          <div>
+            <p class="cart-item-price">R$ ${lineTotalFormatado}</p>
+            <button class="cart-item-remove" data-id="${id}" aria-label="Remover ${product.nome} do carrinho">Remover</button>
+          </div>
+        `;
+
+        listEl.appendChild(item);
+      });
+
+      // Totals
+      const subtotalFormatado = subtotal.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById("cart-subtotal").textContent = `R$ ${subtotalFormatado}`;
+      document.getElementById("cart-total").textContent    = `R$ ${subtotalFormatado}`;
+
+      // Bind cart item buttons
+      listEl.querySelectorAll(".cart-item-qty-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = parseInt(btn.dataset.id);
+          if (btn.dataset.action === "inc") {
+            cart[id] = (cart[id] || 0) + 1;
+          } else {
+            cart[id] = Math.max((cart[id] || 0) - 1, 0);
+            if (cart[id] === 0) delete cart[id];
+          }
+          updateCartUI();
+        });
+      });
+
+      listEl.querySelectorAll(".cart-item-remove").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const id = parseInt(btn.dataset.id);
+          delete cart[id];
+          updateCartUI();
+        });
+      });
+    }
+
+    // ================================================================
+    // WhatsApp Checkout
+    // ================================================================
+    document.getElementById("btn-whatsapp").addEventListener("click", () => {
+      if (Object.keys(cart).length === 0) return;
+
+      let message = "Olá! Gostaria de fazer um pedido de cafés especiais ACAFEG:\n\n";
+
+      let total = 0;
+      Object.entries(cart).forEach(([id, qty]) => {
+        const product = PRODUCTS.find(p => p.id === parseInt(id));
+        if (!product) return;
+        const lineTotal = product.preco * qty;
+        total += lineTotal;
+        message += `• ${product.nome} (${product.peso})\n`;
+        message += `  Quantidade: ${qty}x · R$ ${product.preco.toLocaleString("pt-BR", { minimumFractionDigits: 2 })} cada\n`;
+        message += `  Subtotal: R$ ${lineTotal.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}\n\n`;
+      });
+
+      message += `─────────────────────\n`;
+      message += `*Total: R$ ${total.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}*\n\n`;
+      message += `Aguardo informações sobre frete e prazo. Obrigado!`;
+
+      const encoded = encodeURIComponent(message);
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+      window.open(url, "_blank");
+    });
+
+    // ================================================================
+    // Cart Drawer Toggle
+    // ================================================================
+    function openCart() {
+      document.getElementById("cart-drawer").classList.add("open");
+      document.getElementById("cart-overlay").classList.add("open");
+      document.getElementById("cart-drawer").removeAttribute("aria-hidden");
+      document.getElementById("cart-overlay").setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCart() {
+      document.getElementById("cart-drawer").classList.remove("open");
+      document.getElementById("cart-overlay").classList.remove("open");
+      document.getElementById("cart-drawer").setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("cart-toggle-btn").addEventListener("click", openCart);
+    document.getElementById("cart-close").addEventListener("click", closeCart);
+    document.getElementById("cart-overlay").addEventListener("click", closeCart);
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeCart();
+    });
+
+    // ================================================================
+    // Filters
+    // ================================================================
+    document.querySelectorAll(".filter-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".filter-tab").forEach(t => {
+          t.classList.remove("active");
+          t.setAttribute("aria-pressed", "false");
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-pressed", "true");
+        renderProducts(tab.dataset.filter);
+      });
+    });
+
+    // ================================================================
+    // Toast
+    // ================================================================
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toast-msg").textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+    }
+
+    // ================================================================
+    // IntersectionObserver for animations
+    // ================================================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+
+    // ================================================================
+    // Nav mobile
+    // ================================================================
+    document.getElementById("nav-toggle").addEventListener("click", () => {
+      const menu = document.getElementById("nav-menu");
+      menu.classList.toggle("open");
+    });
+
+    // Navbar scroll
+    const navbar = document.querySelector(".navbar");
+    window.addEventListener("scroll", () => {
+      navbar.style.background = window.scrollY > 40
+        ? "rgba(35,31,32,0.97)"
+        : "rgba(35,31,32,0.95)";
+    }, { passive: true });
+
+    // ================================================================
+    // Init
+    // ================================================================
+    renderProducts();
+    updateCartUI();
+  </script>
+
+</body>
+</html>

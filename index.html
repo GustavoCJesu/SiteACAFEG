@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ACAFEG – Associação dos Cafeicultores do Sul de Minas Gerais. Café especial com origem controlada, cultivado nas montanhas de Andradas." />
+  <meta name="keywords" content="café especial, sul de minas, ACAFEG, Andradas, cafés gourmet, produtores de café" />
+  <title>ACAFEG – Do Solo Vulcânico à Sua Xícara</title>
+
+  <!-- Google Fonts: Cormorant Garamond (serif elegante) + DM Sans (sans-serif moderno) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- CSS -->
+ <link rel="stylesheet" href="style/homeStyle.css">
+</head>
+
+<body>
+
+  <!-- ================================================
+       NAVBAR
+  ================================================= -->
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <a href="index.html" class="navbar-logo">ACA<span>FEG</span></a>
+    <ul class="navbar-links" id="nav-menu">
+      <li><a class="actvate" href="index.html">A Associação</a></li>
+      <li><a href="pages/AboutUs.html">Quem somos</a></li>
+      <li><a href="pages/associates.html">Associados</a></li>
+      <li><a href="pages/store.html">Nosso Café</a></li>
+      <li><a href="pages/contact.html">Contato</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ================================================
+       HERO
+  ================================================= -->
+  <section class="hero" aria-label="Apresentação">
+    <div class="hero-bg" role="img" aria-label="Lavoura de café nas montanhas do sul de Minas Gerais"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="tag reveal">Andradas · Sul de Minas Gerais</span>
+      <h1 class="hero-headline reveal reveal-d1">
+        Do solo vulcânico<br>
+        à sua <em>xícara</em>
+      </h1>
+      <p class="hero-sub reveal reveal-d2">
+        A ACAFEG reúne produtores de café especial cultivados em altitude, com origem rastreável, práticas sustentáveis e o sabor autêntico das montanhas mineiras.
+      </p>
+      <div class="hero-ctas reveal reveal-d3">
+        <a href="#produtores" class="btn btn-primary">Conheça os Produtores</a>
+        <a href="#sobre" class="btn btn-outline">Sobre a Associação</a>
+      </div>
+    </div>
+
+    <!-- estatísticas flutuantes -->
+    <div class="hero-badge reveal reveal-d4">
+      <div class="hero-badge-stat">
+        <strong>1.200m</strong>
+        <span>altitude média</span>
+      </div>
+      <div class="hero-badge-divider"></div>
+      <div class="hero-badge-stat">
+        <strong>32</strong>
+        <span>produtores</span>
+      </div>
+      <div class="hero-badge-divider"></div>
+      <div class="hero-badge-stat">
+        <strong>SCA 86+</strong>
+        <span>pontuação</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-hint-line"></div>
+      <span>Rolar</span>
+    </div>
+  </section>
+
+  <!-- ================================================
+       PROPOSTA DE VALOR
+  ================================================= -->
+  <section class="valores" id="valores" aria-label="Nossos diferenciais">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Por que ACAFEG</span>
+        <h2 class="section-title">Qualidade que vem<br>da origem</h2>
+        <p class="section-sub">Cada xícara carrega a história de famílias, o cuidado com a terra e o compromisso com a excelência.</p>
+      </div>
+
+      <div class="valores-grid">
+        <div class="valor-card reveal reveal-d1">
+          <div class="valor-icon">🌱</div>
+          <h3>Origem Controlada</h3>
+          <p>Cada lote com rastreabilidade completa: da fazenda ao torrador. Você sabe exatamente de onde veio seu café.</p>
+        </div>
+        <div class="valor-card reveal reveal-d2">
+          <div class="valor-icon">🏔️</div>
+          <h3>Alta Altitude</h3>
+          <p>Cultivado entre 900m e 1.400m, o clima frio retarda a maturação e concentra açúcares — resultado: sabor excepcional.</p>
+        </div>
+        <div class="valor-card reveal reveal-d3">
+          <div class="valor-icon">♻️</div>
+          <h3>Produção Sustentável</h3>
+          <p>Práticas agroecológicas, preservação de mata nativa e respeito ao ciclo natural da terra guiam nossos produtores.</p>
+        </div>
+        <div class="valor-card reveal reveal-d4">
+          <div class="valor-icon">⭐</div>
+          <h3>Qualidade Premium</h3>
+          <p>Pontuações SCA acima de 86 pontos certificam o que o paladar já confirma: café especial de classe mundial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SOBRE / HISTÓRIA
+  ================================================= -->
+  <section class="sobre" id="sobre" aria-label="Nossa história">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <div class="sobre-img-wrap reveal">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop&crop=faces"
+            alt="Produtores da ACAFEG na lavoura em Andradas, Minas Gerais"
+            loading="lazy"
+          />
+          <p class="sobre-img-caption">Família Gonçalves — Andradas, MG</p>
+        </div>
+
+        <div class="sobre-text reveal reveal-d2">
+          <span class="tag">Nossa História</span>
+          <h2 class="section-title">Uma associação nascida<br>da terra e das pessoas</h2>
+
+          <p>A ACAFEG nasceu da necessidade de unir forças: pequenos e médios produtores do sul de Minas Gerais que acreditavam que seu café tinha potencial para muito mais do que o mercado tradicional.</p>
+
+          <p>Fundada em Andradas, cidade que respira café há mais de um século, a associação construiu pontes entre a tradição cafeeira da região e as demandas do mercado de cafés especiais — nacional e internacional.</p>
+
+          <blockquote>
+            "Nosso trabalho começa muito antes da colheita. Começa no respeito à terra, à família e ao grão."
+          </blockquote>
+
+          <p>Hoje reunimos mais de 30 famílias produtoras, cada uma com sua identidade e microclima únicos, mas todas comprometidas com a mesma filosofia: café com alma.</p>
+
+          <div class="sobre-stats">
+            <div class="sobre-stat">
+              <strong>2012</strong>
+              <span>Fundação</span>
+            </div>
+            <div class="sobre-stat">
+              <strong>32</strong>
+              <span>Famílias associadas</span>
+            </div>
+            <div class="sobre-stat">
+              <strong>8</strong>
+              <span>Premiações</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       PRODUTORES
+  ================================================= -->
+  <section class="produtores" id="produtores" aria-label="Nossos produtores">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Os Guardiões do Grão</span>
+        <h2 class="section-title">Conheça quem cultiva<br>seu café</h2>
+        <p class="section-sub">Arraste para conhecer as famílias por trás de cada xícara.</p>
+      </div>
+    </div>
+
+    <!-- scroll horizontal fora do container para ir até a borda -->
+    <div class="container">
+      <div class="produtores-scroll reveal" role="list">
+
+        <div class="produtor-card" role="listitem">
+          <div class="produtor-img">
+            <img src="https://images.unsplash.com/photo-1592483648228-b35146a4330c?w=600&q=80&fit=crop" alt="Fazenda família Silva" loading="lazy" />
+          </div>
+          <div class="produtor-overlay"></div>
+          <div class="produtor-info">
+            <span class="produtor-altitude">1.280m</span>
+            <h3>Família Silva</h3>
+            <div class="produtor-meta">
+              <span>📍 Andradas, MG</span>
+              <span>Bourbon Amarelo</span>
+            </div>
+            <p class="produtor-details">Três gerações cultivando café no mesmo terroir. Notas de caramelo, castanha e leve acidez cítrica. Processo natural.</p>
+          </div>
+        </div>
+
+        <div class="produtor-card" role="listitem">
+          <div class="produtor-img">
+            <img src="https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=600&q=80&fit=crop" alt="Fazenda família Pereira" loading="lazy" />
+          </div>
+          <div class="produtor-overlay"></div>
+          <div class="produtor-info">
+            <span class="produtor-altitude">1.150m</span>
+            <h3>Família Pereira</h3>
+            <div class="produtor-meta">
+              <span>📍 Caldas, MG</span>
+              <span>Catuaí Vermelho</span>
+            </div>
+            <p class="produtor-details">Pioneiros em fermentação anaeróbica na região. Perfil exótico com notas de frutas vermelhas, mel e especiarias.</p>
+          </div>
+        </div>
+
+        <div class="produtor-card" role="listitem">
+          <div class="produtor-img">
+            <img src="https://images.unsplash.com/photo-1543168256-418811576931?w=600&q=80&fit=crop" alt="Fazenda família Gonçalves" loading="lazy" />
+          </div>
+          <div class="produtor-overlay"></div>
+          <div class="produtor-info">
+            <span class="produtor-altitude">1.380m</span>
+            <h3>Família Gonçalves</h3>
+            <div class="produtor-meta">
+              <span>📍 Andradas, MG</span>
+              <span>Acaiá Cerrado</span>
+            </div>
+            <p class="produtor-details">A maior altitude da associação garante maturação lenta e complexidade única. Notas de chocolate amargo e floral delicado.</p>
+          </div>
+        </div>
+
+        <div class="produtor-card" role="listitem">
+          <div class="produtor-img">
+            <img src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80&fit=crop" alt="Fazenda família Rodrigues" loading="lazy" />
+          </div>
+          <div class="produtor-overlay"></div>
+          <div class="produtor-info">
+            <span class="produtor-altitude">1.050m</span>
+            <h3>Família Rodrigues</h3>
+            <div class="produtor-meta">
+              <span>📍 Poços de Caldas, MG</span>
+              <span>Mundo Novo</span>
+            </div>
+            <p class="produtor-details">Manejo orgânico certificado há 12 anos. Café encorpado com doçura persistente de rapadura e toque de noz.</p>
+          </div>
+        </div>
+
+        <div class="produtor-card" role="listitem">
+          <div class="produtor-img">
+            <img src="https://images.unsplash.com/photo-1621524558773-b16c5e42f5b0?w=600&q=80&fit=crop" alt="Fazenda família Souza" loading="lazy" />
+          </div>
+          <div class="produtor-overlay"></div>
+          <div class="produtor-info">
+            <span class="produtor-altitude">1.200m</span>
+            <h3>Família Souza</h3>
+            <div class="produtor-meta">
+              <span>📍 Andradas, MG</span>
+              <span>Topázio</span>
+            </div>
+            <p class="produtor-details">Especialistas em processo honey. Doçura intensa de frutas maduras com corpo aveludado e finalização longa.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SENSORIAL
+  ================================================= -->
+  <section class="sensorial" id="sensorial" aria-label="Perfil sensorial">
+    <div class="container">
+      <div class="sensorial-grid">
+
+        <div class="sensorial-text reveal">
+          <span class="tag">Notas de Degustação</span>
+          <h2 class="section-title">Uma sinfonia de<br>sabores e aromas</h2>
+          <p>O terroir único do sul de Minas — solo vulcânico, névoa das montanhas e amplitude térmica — cria condições ideais para cafés de perfil complexo e equilibrado, com doçura natural excepcional.</p>
+          <br>
+          <p>Cada safra é uma experiência sensorial diferente, mas sempre com a identidade inconfundível das altitudes de Andradas.</p>
+        </div>
+
+        <div class="sensorial-notas reveal reveal-d2">
+          <div class="nota-item">
+            <span class="nota-icon">🍫</span>
+            <div>
+              <h4>Chocolate e Cacau</h4>
+              <p>Presente nos grãos de maior altitude, com torra média.</p>
+            </div>
+          </div>
+          <div class="nota-item">
+            <span class="nota-icon">🍊</span>
+            <div>
+              <h4>Frutas Cítricas</h4>
+              <p>Acidez brilhante de laranja e maracujá nos Bourbon.</p>
+            </div>
+          </div>
+          <div class="nota-item">
+            <span class="nota-icon">🍯</span>
+            <div>
+              <h4>Mel e Caramelo</h4>
+              <p>Doçura natural do processo honey e natural lento.</p>
+            </div>
+          </div>
+          <div class="nota-item">
+            <span class="nota-icon">🌸</span>
+            <div>
+              <h4>Floral Delicado</h4>
+              <p>Jasmim e lavanda nas colheitas de maior altitude.</p>
+            </div>
+          </div>
+          <div class="nota-item">
+            <span class="nota-icon">🥜</span>
+            <div>
+              <h4>Nozes e Amêndoas</h4>
+              <p>Final amendoado, corpo cheio e sensação aveludada.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       INSTITUCIONAL — MISSÃO / VISÃO / VALORES
+  ================================================= -->
+  <section class="institucional" id="institucional" aria-label="Missão, visão e valores">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center">
+        <div class="divider">Propósito</div>
+        <span class="tag">Quem Somos</span>
+        <h2 class="section-title">O que nos move<br>todos os dias</h2>
+      </div>
+
+      <div class="mvv-grid">
+        <div class="mvv-card missao reveal reveal-d1">
+          <p class="mvv-label">Missão</p>
+          <h3>"Fortalecer o cafeicultor e valorizar a origem"</h3>
+          <p>Promover a excelência na produção de café especial, gerando renda digna para as famílias associadas e posicionando Andradas no mapa mundial dos melhores cafés.</p>
+        </div>
+        <div class="mvv-card visao reveal reveal-d2">
+          <p class="mvv-label">Visão</p>
+          <h3>"Ser referência nacional em cafés especiais de origem"</h3>
+          <p>Até 2030, queremos que a marca ACAFEG seja sinônimo de transparência, qualidade e impacto social positivo para consumidores e parceiros em todo o Brasil.</p>
+        </div>
+        <div class="mvv-card valores reveal reveal-d3">
+          <p class="mvv-label">Valores</p>
+          <h3>O que guia nossas escolhas</h3>
+          <ul class="mvv-valores-list">
+            <li>Transparência e rastreabilidade</li>
+            <li>Respeito à terra e ao produtor</li>
+            <li>Qualidade sem concessões</li>
+            <li>Comunidade e solidariedade</li>
+            <li>Inovação com raízes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       CTA FINAL
+  ================================================= -->
+  <section class="cta-final" id="contato" aria-label="Faça parte da ACAFEG">
+    <div class="cta-final-bg" role="img" aria-label="Grãos de café sendo colhidos"></div>
+    <div class="cta-final-overlay"></div>
+    <div class="container">
+      <span class="tag reveal">Junte-se a nós</span>
+      <h2 class="section-title reveal reveal-d1">Faça parte dessa<br><em style="color:var(--ouro);font-style:italic;">história</em></h2>
+      <p class="reveal reveal-d2">Seja você um produtor em busca de valorização, um torrador em busca de origem ou um amante de café em busca de autenticidade — há um lugar para você aqui.</p>
+      <div class="cta-final-btns reveal reveal-d3">
+        <a href="mailto:contato@acafeg.com.br" class="btn btn-primary">Entre em Contato</a>
+        <a href="#sobre" class="btn btn-outline">Seja um Parceiro</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       FOOTER
+  ================================================= -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="navbar-logo">ACA<span>FEG</span></div>
+          <p>Associação dos Cafeicultores Especiais de Andradas e Região. Cultivando excelência no sul de Minas Gerais desde 2012.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">in</a>
+            <a href="#" aria-label="Facebook">fb</a>
+            <a href="#" aria-label="YouTube">yt</a>
+            <a href="#" aria-label="WhatsApp">wh</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#sobre">A Associação</a></li>
+            <li><a href="#produtores">Produtores</a></li>
+            <li><a href="#sensorial">Nosso Café</a></li>
+            <li><a href="#institucional">Missão</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="#">Certificações</a></li>
+            <li><a href="#">Imprensa</a></li>
+            <li><a href="#">Seja Associado</a></li>
+            <li><a href="#">Relatório Anual</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@acafeg.com.br">contato@acafeg.com.br</a></li>
+            <li><a href="tel:+5535999999999">(35) 9 9999-9999</a></li>
+            <li><a href="#">Andradas – MG, 37795-000</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 ACAFEG – Todos os direitos reservados.</p>
+        <p>Feito com ☕ no sul de Minas Gerais</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================
+       JAVASCRIPT
+       Mantido no final do body — o HTML já foi renderizado
+       quando o JS executa, então não precisa esperar DOMContentLoaded.
+  ================================================= -->
+  <script>
+    // --------------------------------------------------
+    // 1. MENU MOBILE
+    // Alternamos a classe "open" para mostrar/ocultar
+    // os links — simples, acessível, sem biblioteca.
+    // --------------------------------------------------
+    const toggle = document.getElementById('nav-toggle');
+    const menu   = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+
+    // fecha o menu ao clicar em qualquer link
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('open'));
+    });
+
+    // --------------------------------------------------
+    // 2. ANIMAÇÕES DE ENTRADA — IntersectionObserver
+    // Por que usar IntersectionObserver em vez de scroll event?
+    // - É assíncrono: não bloqueia o thread principal
+    // - Mais performático: o browser decide quando checar
+    // - Nativo: funciona em todos os browsers modernos
+    //
+    // threshold: 0.15 = a animação dispara quando 15% do
+    // elemento está visível. Ajuste conforme necessário.
+    // --------------------------------------------------
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // unobserve para não re-animar ao rolar de volta
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    // observa todos os elementos com classe .reveal
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // --------------------------------------------------
+    // 3. NAVBAR — muda fundo ao scrollar
+    // Diferença entre usar scroll event aqui vs no CSS:
+    // o CSS não consegue checar a posição do scroll,
+    // então precisamos de JS para adicionar a classe.
+    // requestAnimationFrame garante que rodamos apenas
+    // uma vez por frame — evita layout thrashing.
+    // --------------------------------------------------
+    const navbar = document.querySelector('.navbar');
+    let ticking  = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // já tem o estilo sticky/blur, mas podemos
+          // adicionar borda mais visível ao scrollar
+          navbar.style.borderBottomColor = window.scrollY > 60
+            ? 'rgba(195, 217, 65, 0.2)'
+            : 'rgba(195, 217, 65, 0.12)';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  </script>
+
+</body>
+</html>

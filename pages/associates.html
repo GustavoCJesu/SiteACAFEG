@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conheça os produtores associados da ACAFEG – famílias do sul de Minas Gerais que cultivam cafés especiais com qualidade, origem e rastreabilidade." />
+  <title>Produtores Associados | ACAFEG – Cafés Especiais do Sul de Minas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../style/associatesStyle.css">
+</head>
+
+<body>
+
+  <!-- ─── Navbar ──────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <a href="#" class="navbar-logo">ACA<span>FEG</span></a>
+    <ul class="navbar-links" id="nav-menu">
+      <li><a href="../index.html">A Associação</a></li>
+      <li><a href="aboutUs.html">Quem somos</a></li>
+      <li><a class="actvate" href="associates.html">Associados</a></li>
+      <li><a href="store.html">Nosso Café</a></li>
+      <li><a href="contact.html">Contato</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── Modal ───────────────────────────────────────────────────── -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-label="Detalhes do produtor">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+      <img class="modal-img" id="modal-img" src="" alt="" loading="lazy" />
+      <div class="modal-body">
+        <div class="modal-header">
+          <p class="modal-geracao" id="modal-geracao"></p>
+          <h2 class="modal-nome" id="modal-nome"></h2>
+          <div class="modal-meta" id="modal-meta"></div>
+        </div>
+        <div class="modal-divider"></div>
+        <p class="modal-descricao" id="modal-descricao"></p>
+        <div class="modal-info-grid" id="modal-info-grid"></div>
+        <div class="modal-notas-wrap">
+          <p class="modal-notas-titulo">Notas sensoriais características</p>
+          <div class="modal-notas" id="modal-notas"></div>
+        </div>
+        <div class="modal-footer" id="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ─── Hero ─────────────────────────────────────────────────── -->
+    <section class="hero-inner" aria-label="Cabeçalho dos produtores associados">
+      <div class="container">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Início</a>
+          <span>›</span>
+          <span>Produtores Associados</span>
+        </nav>
+        <div class="ornament">
+          <div class="ornament-line"></div>
+          <span class="tag">Produtores Associados</span>
+        </div>
+        <h1>
+          As famílias por trás<br>
+          de cada <em>xícara especial</em>
+        </h1>
+        <p class="lead">
+          Mais de 60 produtores de Andradas e região, unidos pela qualidade,
+          pela origem e pelo orgulho de cultivar um dos melhores cafés do Brasil.
+        </p>
+        <div class="hero-stats" role="list">
+          <div class="hero-stat" role="listitem">
+            <strong id="stat-total">0</strong>
+            <span>Produtores associados</span>
+          </div>
+          <div class="hero-stat" role="listitem">
+            <strong>7</strong>
+            <span>Municípios</span>
+          </div>
+          <div class="hero-stat" role="listitem">
+            <strong>82+</strong>
+            <span>Pontuação SCA média</span>
+          </div>
+          <div class="hero-stat" role="listitem">
+            <strong>1.100m</strong>
+            <span>Altitude média</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Filter Bar ─────────────────────────────────────────────── -->
+    <div class="filter-bar" role="navigation" aria-label="Filtros">
+      <div class="container">
+        <div class="filter-inner">
+          <div class="filter-left">
+            <div class="search-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input
+                class="search-input"
+                id="search-input"
+                type="search"
+                placeholder="Buscar produtor ou município..."
+                aria-label="Buscar produtor"
+              />
+            </div>
+            <div class="filter-tabs" role="group" aria-label="Filtrar por processo">
+              <button class="filter-tab active" data-filter="todos" aria-pressed="true">Todos</button>
+              <button class="filter-tab" data-filter="natural" aria-pressed="false">Natural</button>
+              <button class="filter-tab" data-filter="honey" aria-pressed="false">Honey</button>
+              <button class="filter-tab" data-filter="lavado" aria-pressed="false">Lavado</button>
+              <button class="filter-tab" data-filter="anaérobico" aria-pressed="false">Anaeróbico</button>
+            </div>
+          </div>
+          <div class="filter-right">
+            <div class="view-toggle" role="group" aria-label="Modo de visualização">
+              <button class="view-btn active" data-view="grid" aria-label="Visualização em grade" aria-pressed="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                  <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                </svg>
+              </button>
+              <button class="view-btn" data-view="list" aria-label="Visualização em lista" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+                  <line x1="8" y1="18" x2="21" y2="18"/>
+                  <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/>
+                  <line x1="3" y1="18" x2="3.01" y2="18"/>
+                </svg>
+              </button>
+            </div>
+            <p class="filter-count"><strong id="count-visible">0</strong> exibidos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Grid ─────────────────────────────────────────────────── -->
+    <section class="section-associados" aria-label="Lista de produtores associados">
+      <div class="container">
+        <div class="associados-grid" id="associados-grid"></div>
+        <div class="empty-state" id="empty-state" role="status" aria-live="polite">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <strong>Nenhum produtor encontrado</strong>
+          <p>Tente ajustar os filtros ou o termo de busca.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ───────────────────────────────────────────────────── -->
+    <section class="section-cta" aria-label="Seja um associado">
+      <div class="cta-content container fade-up">
+        <div class="ornament" style="justify-content:center; margin-bottom:12px">
+          <div class="ornament-line"></div>
+          <span class="tag">Seja Associado</span>
+          <div class="ornament-line"></div>
+        </div>
+        <h2 class="section-title">
+          Seu café também<br><em>merece estar aqui</em>
+        </h2>
+        <p>
+          Produtores de Andradas e região com cafés especiais são bem-vindos.
+          Venha fazer parte de uma rede que valoriza sua história, sua família
+          e a qualidade do que você cultiva.
+        </p>
+        <div class="cta-actions">
+          <a href="#contato" class="btn btn-primary">Quero ser associado</a>
+          <a href="quem-somos.html" class="btn btn-outline">Conheça a ACAFEG</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── Footer ──────────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="navbar-logo">ACA<span>FEG</span></div>
+          <p>Associação dos Cafeicultores Especiais de Andradas e Região. Cultivando excelência no sul de Minas Gerais desde 2012.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">in</a>
+            <a href="#" aria-label="Facebook">fb</a>
+            <a href="#" aria-label="YouTube">yt</a>
+            <a href="#" aria-label="WhatsApp">wh</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="quem-somos.html">A Associação</a></li>
+            <li><a href="associados.html">Produtores</a></li>
+            <li><a href="produtos.html">Nosso Café</a></li>
+            <li><a href="#institucional">Missão</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="#">Certificações</a></li>
+            <li><a href="#">Imprensa</a></li>
+            <li><a href="#">Seja Associado</a></li>
+            <li><a href="#">Relatório Anual</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@acafeg.com.br">contato@acafeg.com.br</a></li>
+            <li><a href="tel:+5535999999999">(35) 9 9999-9999</a></li>
+            <li><a href="#">Andradas – MG, 37795-000</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 ACAFEG – Todos os direitos reservados.</p>
+        <p>Feito com ☕ no sul de Minas Gerais</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ================================================================
+    // ASSOCIADOS — Adicione ou edite produtores aqui.
+    // Para adicionar um novo: copie um objeto e preencha os campos.
+    // ================================================================
+    const ASSOCIADOS = [
+      {
+        id: 1,
+        nome: "Família Rodrigues",
+        fazenda: "Fazenda Boa Vista",
+        municipio: "Andradas, MG",
+        geracao: "3ª geração",
+        altitude: "1.180m",
+        area: "42 ha",
+        processo: ["natural", "honey"],
+        pontuacao: "86,5 SCA",
+        descricao: "Três gerações de dedicação ao café especial. A família Rodrigues é referência em processamento natural com secagem lenta em terreiro suspenso, desenvolvendo lotes com notas marcantes de chocolate e frutas escuras.",
+        descricaoLonga: "José Rodrigues iniciou o cultivo de café na propriedade nos anos 80, quando ainda era commodity. Seu filho Marcos, ao retornar da faculdade de agronomia em 2004, introduziu técnicas de processamento especial que transformaram a qualidade da fazenda. Hoje, com a terceira geração envolvida, a Fazenda Boa Vista é uma das propriedades mais premiadas da associação, com lotes recorrentemente acima de 85 pontos SCA.",
+        notas: ["Chocolate amargo", "Amêndoas", "Frutas vermelhas", "Caramelo"],
+        imagem: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=80",
+        associadoDesde: "2012"
+      },
+      {
+        id: 2,
+        nome: "Família Almeida",
+        fazenda: "Sítio São Miguel",
+        municipio: "Monte Sião, MG",
+        geracao: "2ª geração",
+        altitude: "1.220m",
+        area: "28 ha",
+        processo: ["honey", "anaérobico"],
+        pontuacao: "87,25 SCA",
+        descricao: "Ana Luiza Almeida herdou o sítio dos pais e reimaginou toda a cadeia produtiva. Pioneira no uso de fermentação anaeróbica em Andradas, seus lotes honey são reconhecidos pela doçura intensa e corpo denso.",
+        descricaoLonga: "Ana Luiza cresceu entre os cafezais do Sítio São Miguel e sabia desde jovem que queria transformar o lugar. Após especialização em processamentos especiais na Etiópia e no Panamá, voltou para Minas com uma visão diferente. Introduziu tanques de fermentação anaeróbica, esteiras de secagem elevadas e um protocolo rigoroso de colheita seletiva. O resultado foram lotes que chegaram a 89 pontos SCA em 2023.",
+        notas: ["Caramelo", "Pêssego", "Mel de flor", "Baunilha"],
+        imagem: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80",
+        associadoDesde: "2014"
+      },
+      {
+        id: 3,
+        nome: "Família Cunha",
+        fazenda: "Alto da Serra",
+        municipio: "Poços de Caldas, MG",
+        geracao: "1ª geração",
+        altitude: "1.350m",
+        area: "18 ha",
+        processo: ["lavado"],
+        pontuacao: "85,75 SCA",
+        descricao: "Roberto Cunha trocou a engenharia civil pelo café há 15 anos. Sua fazenda de altitude máxima produz cafés lavados de acidez precisa e perfil cítrico inconfundível, reflexo direto do terroir de Poços de Caldas.",
+        descricaoLonga: "Roberto Cunha trabalhou por 12 anos como engenheiro civil em São Paulo antes de adquirir uma propriedade em Poços de Caldas. A altitude extrema de 1.350 metros e o solo argiloso da região criaram condições ideais para um café lavado de acidez brilhante. Hoje é Q-Grader certificado e atua também como diretor técnico da ACAFEG, capacitando outros produtores nos protocolos de qualidade.",
+        notas: ["Laranja", "Chá floral", "Acidez cítrica", "Limão siciliano"],
+        imagem: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80",
+        associadoDesde: "2016"
+      },
+      {
+        id: 4,
+        nome: "Família Pereira",
+        fazenda: "Recanto das Pedras",
+        municipio: "Caldas, MG",
+        geracao: "4ª geração",
+        altitude: "1.090m",
+        area: "65 ha",
+        processo: ["natural", "lavado"],
+        pontuacao: "84,5 SCA",
+        descricao: "A mais antiga família cafeicultora da associação. Quatro gerações moldaram a identidade do Recanto das Pedras, com cafés que carregam a memória afetiva do sul de Minas — encorpados, doces e reconfortantes.",
+        descricaoLonga: "A Família Pereira cultiva café na mesma terra desde 1940. Bisavô, avô, pai e filhos — cada geração adicionou uma camada à história da propriedade. Com 65 hectares, é uma das maiores propriedades da associação, mas mantém colheita 100% manual e processamento artesanal. Seus blends são os mais requisitados por torrefações que buscam o perfil clássico do sul de Minas.",
+        notas: ["Chocolate ao leite", "Nozes", "Açúcar mascavo", "Tâmara"],
+        imagem: "https://images.unsplash.com/photo-1508519286473-ef56d35c1f32?w=900&q=80",
+        associadoDesde: "2012"
+      },
+      {
+        id: 5,
+        nome: "Família Souza",
+        fazenda: "Sítio Três Irmãos",
+        municipio: "Andradas, MG",
+        geracao: "2ª geração",
+        altitude: "1.140m",
+        area: "22 ha",
+        processo: ["honey", "natural"],
+        pontuacao: "85,0 SCA",
+        descricao: "Três irmãos que dividiram a propriedade herdada dos pais e decidiram transformá-la em referência de cafés honey. Cada um cuida de uma etapa — plantio, processamento e comercialização — com divisão perfeita e resultado coletivo.",
+        descricaoLonga: "Paulo, Luís e Carla Souza cresceram vendo os pais lutarem com o café commodity. Ao herdarem a propriedade em 2010, decidiram por uma estratégia diferente: especialização total em cafés especiais processados como honey. Cada irmão se tornou especialista em uma área. O resultado é um sistema de produção integrado e eficiente que serve de modelo para outros associados.",
+        notas: ["Mel", "Damasco", "Cana-de-açúcar", "Flor de laranjeira"],
+        imagem: "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=900&q=80",
+        associadoDesde: "2015"
+      },
+      {
+        id: 6,
+        nome: "Família Nascimento",
+        fazenda: "Fazenda Vista Alegre",
+        municipio: "Campestre, MG",
+        geracao: "3ª geração",
+        altitude: "1.080m",
+        area: "35 ha",
+        processo: ["natural", "anaérobico"],
+        pontuacao: "86,0 SCA",
+        descricao: "Maria das Graças Nascimento é a primeira mulher a liderar uma propriedade na associação. Com visão inovadora, introduziu fermentação anaeróbica com inoculação de leveduras em 2020, criando perfis sensoriais únicos no território.",
+        descricaoLonga: "Maria das Graças assumiu a fazenda após o falecimento do marido em 2015. Em vez de vender, decidiu reinventar a propriedade. Cursou caficultura na UFLA e trouxe para Campestre técnicas que faziam sucesso no Panamá e na Colômbia. Seus experimentos com leveduras selecionadas geraram lotes de perfil tropical incomum para a região, conquistando torrefações de São Paulo, Rio e até Portugal.",
+        notas: ["Maracujá", "Mirtilo", "Jasmim", "Chocolate branco"],
+        imagem: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=900&q=80",
+        associadoDesde: "2017"
+      },
+      {
+        id: 7,
+        nome: "Família Ferreira",
+        fazenda: "Chapada Verde",
+        municipio: "Santa Rita de Caldas, MG",
+        geracao: "2ª geração",
+        altitude: "1.260m",
+        area: "30 ha",
+        processo: ["lavado", "honey"],
+        pontuacao: "86,75 SCA",
+        descricao: "Altitude excepcional e microclima único. A Chapada Verde é conhecida pelos meses frios de inverno que desaceleram a maturação dos frutos, resultando em grãos de densidade alta e perfil sensorial marcante.",
+        descricaoLonga: "Eduardo Ferreira herdou a propriedade do pai e percebeu que a altitude de 1.260 metros era o maior ativo que possuía. A maturação lenta dos frutos em meses frios cria grãos densos e adocicados que responem excepcionalmente bem ao processo lavado. Hoje exporta para três países europeus por meio da ACAFEG e foi premiado na Cup of Excellence em 2022.",
+        notas: ["Rapadura", "Uva passa", "Cacau", "Especiarias"],
+        imagem: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=900&q=80",
+        associadoDesde: "2018"
+      },
+      {
+        id: 8,
+        nome: "Família Lima",
+        fazenda: "Sítio Bela Aurora",
+        municipio: "Andradas, MG",
+        geracao: "1ª geração",
+        altitude: "1.100m",
+        area: "14 ha",
+        processo: ["natural"],
+        pontuacao: "84,0 SCA",
+        descricao: "Casal de professores que encontrou no café especial uma segunda vocação. Pequena propriedade, grande cuidado. Cada lote da Bela Aurora é produzido em micro-escala, com atenção milimétrica à colheita e secagem.",
+        descricaoLonga: "Renato e Cláudia Lima compraram o sítio como área de lazer em 2009 e foram seduzidos pelo café ao participar de uma visita técnica da ACAFEG. Iniciantes na caficultura, buscaram formação e passaram a tratar cada parte da pequena propriedade como laboratório. Hoje sua micro-produção de 14 sacas por colheita é disputada por compradores que valorizam lotes de origem única com rastreabilidade absoluta.",
+        notas: ["Baunilha", "Castanha", "Tâmara", "Tabaco suave"],
+        imagem: "https://images.unsplash.com/photo-1497935586047-9395ee9e5069?w=900&q=80",
+        associadoDesde: "2019"
+      },
+      {
+        id: 9,
+        nome: "Família Monteiro",
+        fazenda: "Serra do Café",
+        municipio: "Poços de Caldas, MG",
+        geracao: "3ª geração",
+        altitude: "1.190m",
+        area: "48 ha",
+        processo: ["lavado", "anaérobico"],
+        pontuacao: "87,5 SCA",
+        descricao: "Uma das propriedades com maior diversidade de variedades da associação. A Serra do Café cultiva Geisha, Wush Wush e Acauã lado a lado, criando lotes únicos que expressam o potencial máximo do terroir de Poços.",
+        descricaoLonga: "A família Monteiro é uma das mais antigas de Poços de Caldas. A terceira geração, representada por Tiago Monteiro, decidiu apostar em variedades exóticas ao visitar a Colômbia em 2016. Trouxe sementes de Geisha panamenha e Wush Wush etíope, que se adaptaram surpreendentemente bem ao terroir local. Seus lotes de Geisha processada lavada chegaram a 90 pontos SCA, o maior da associação.",
+        notas: ["Bergamota", "Pêssego branco", "Jasmim", "Acidez vínica"],
+        imagem: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=900&q=80",
+        associadoDesde: "2013"
+      }
+      // ── Para adicionar novo associado, copie um objeto acima ──
+    ];
+
+    // ================================================================
+    // State
+    // ================================================================
+    let activeFilter = "todos";
+    let searchQuery  = "";
+    let activeView   = "grid";
+
+    // ================================================================
+    // Render
+    // ================================================================
+    function getFiltered() {
+      return ASSOCIADOS.filter(a => {
+        const matchFilter = activeFilter === "todos" || a.processo.includes(activeFilter);
+        const q = searchQuery.toLowerCase();
+        const matchSearch = !q
+          || a.nome.toLowerCase().includes(q)
+          || a.fazenda.toLowerCase().includes(q)
+          || a.municipio.toLowerCase().includes(q)
+          || a.descricao.toLowerCase().includes(q);
+        return matchFilter && matchSearch;
+      });
+    }
+
+    function renderCards() {
+      const grid   = document.getElementById("associados-grid");
+      const empty  = document.getElementById("empty-state");
+      const filtered = getFiltered();
+
+      grid.innerHTML = "";
+
+      if (filtered.length === 0) {
+        empty.classList.add("visible");
+        document.getElementById("count-visible").textContent = "0";
+        return;
+      }
+
+      empty.classList.remove("visible");
+      document.getElementById("count-visible").textContent = filtered.length;
+
+      filtered.forEach((a, i) => {
+        const delay = i < 6 ? `fade-up-delay-${(i % 3) + 1}` : "";
+        const card = document.createElement("article");
+        card.className = `associado-card fade-up ${delay}`;
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("aria-label", `Ver detalhes de ${a.nome} – ${a.fazenda}`);
+
+        const processoTags = a.processo
+          .map(p => `<span class="card-tag">${p.charAt(0).toUpperCase() + p.slice(1)}</span>`)
+          .join("");
+
+        card.innerHTML = `
+          <div class="card-img-wrap">
+            <img src="${a.imagem}" alt="Foto da ${a.fazenda}" loading="lazy" />
+            <div class="card-img-overlay" aria-hidden="true"></div>
+            <span class="card-sca-badge" aria-label="Pontuação SCA: ${a.pontuacao}">${a.pontuacao}</span>
+            <p class="card-municipio" aria-label="Município: ${a.municipio}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              ${a.municipio}
+            </p>
+          </div>
+          <div class="card-body">
+            <div class="card-main-info">
+              <p class="card-geracao">${a.geracao} · Desde ${a.associadoDesde}</p>
+              <h3 class="card-nome">${a.fazenda}</h3>
+            </div>
+            <p class="card-descricao">${a.descricao}</p>
+            <div class="card-tags" role="list" aria-label="Processos">${processoTags}</div>
+            <div class="card-footer">
+              <span class="card-altitude">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+                ${a.altitude} · ${a.area}
+              </span>
+              <span class="card-ver-mais" aria-hidden="true">
+                Ver mais →
+              </span>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener("click", () => openModal(a.id));
+        card.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openModal(a.id); });
+
+        grid.appendChild(card);
+      });
+
+      // Apply view class
+      applyView();
+
+      // Re-observe
+      document.querySelectorAll(".fade-up:not(.visible)").forEach(el => observer.observe(el));
+    }
+
+    function applyView() {
+      const grid = document.getElementById("associados-grid");
+      if (activeView === "list") {
+        grid.classList.add("view-list");
+      } else {
+        grid.classList.remove("view-list");
+      }
+    }
+
+    // ================================================================
+    // Modal
+    // ================================================================
+    function openModal(id) {
+      const a = ASSOCIADOS.find(x => x.id === id);
+      if (!a) return;
+
+      document.getElementById("modal-img").src = a.imagem;
+      document.getElementById("modal-img").alt = `Foto da ${a.fazenda}`;
+      document.getElementById("modal-geracao").textContent = `${a.geracao} · Associado desde ${a.associadoDesde}`;
+      document.getElementById("modal-nome").textContent = `${a.fazenda} — ${a.nome}`;
+
+      // Meta
+      document.getElementById("modal-meta").innerHTML = `
+        <span class="modal-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          ${a.municipio}
+        </span>
+        <span class="modal-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+          ${a.altitude}
+        </span>
+        <span class="modal-meta-item" style="color:var(--ouro)">
+          ${a.pontuacao}
+        </span>
+      `;
+
+      document.getElementById("modal-descricao").textContent = a.descricaoLonga || a.descricao;
+
+      // Info grid
+      const processos = a.processo.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(", ");
+      document.getElementById("modal-info-grid").innerHTML = `
+        <div class="modal-info-item">
+          <p class="modal-info-label">Área</p>
+          <p class="modal-info-value">${a.area}</p>
+        </div>
+        <div class="modal-info-item">
+          <p class="modal-info-label">Processos</p>
+          <p class="modal-info-value">${processos}</p>
+        </div>
+        <div class="modal-info-item">
+          <p class="modal-info-label">Altitude</p>
+          <p class="modal-info-value">${a.altitude}</p>
+        </div>
+      `;
+
+      // Notas
+      document.getElementById("modal-notas").innerHTML = a.notas
+        .map(n => `<span class="modal-nota">${n}</span>`)
+        .join("");
+
+      // Footer
+      document.getElementById("modal-footer").innerHTML = `
+        <a href="produtos.html" class="btn btn-primary">Ver cafés disponíveis</a>
+        <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+      `;
+
+      document.getElementById("modal-overlay").classList.add("open");
+      document.getElementById("modal-overlay").removeAttribute("aria-hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      document.getElementById("modal-overlay").classList.remove("open");
+      document.getElementById("modal-overlay").setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.getElementById("modal-close").addEventListener("click", closeModal);
+    document.getElementById("modal-overlay").addEventListener("click", e => {
+      if (e.target === document.getElementById("modal-overlay")) closeModal();
+    });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+    // ================================================================
+    // Filters + Search
+    // ================================================================
+    document.querySelectorAll(".filter-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".filter-tab").forEach(t => {
+          t.classList.remove("active");
+          t.setAttribute("aria-pressed", "false");
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-pressed", "true");
+        activeFilter = tab.dataset.filter;
+        renderCards();
+      });
+    });
+
+    let searchTimeout;
+    document.getElementById("search-input").addEventListener("input", e => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        searchQuery = e.target.value.trim();
+        renderCards();
+      }, 280);
+    });
+
+    // View toggle
+    document.querySelectorAll(".view-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".view-btn").forEach(b => {
+          b.classList.remove("active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-pressed", "true");
+        activeView = btn.dataset.view;
+        applyView();
+      });
+    });
+
+    // ================================================================
+    // Hero stat counter animation
+    // ================================================================
+    function animateCount(el, target, duration = 1200) {
+      let start = 0;
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        el.textContent = Math.floor(progress * target);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      };
+      requestAnimationFrame(step);
+    }
+
+    const statObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(document.getElementById("stat-total"), ASSOCIADOS.length);
+          statObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    statObserver.observe(document.getElementById("stat-total"));
+
+    // ================================================================
+    // IntersectionObserver
+    // ================================================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -24px 0px" });
+
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+
+    // ================================================================
+    // Nav mobile
+    // ================================================================
+    document.getElementById("nav-toggle").addEventListener("click", () => {
+      document.getElementById("nav-menu").classList.toggle("open");
+    });
+
+    const navbar = document.querySelector(".navbar");
+    window.addEventListener("scroll", () => {
+      navbar.style.background = window.scrollY > 40
+        ? "rgba(35,31,32,0.97)"
+        : "rgba(35,31,32,0.95)";
+    }, { passive: true });
+
+    // ================================================================
+    // Init
+    // ================================================================
+    renderCards();
+  </script>
+
+</body>
+</html>

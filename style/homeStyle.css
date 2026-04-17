@@ -1,0 +1,924 @@
+    /* ===================================================
+       DESIGN TOKENS — paleta e variáveis globais
+       Centralizar aqui facilita manutenção: mudar uma cor
+       muda o site inteiro sem precisar buscar no código.
+    =================================================== */
+    :root {
+      --vinho:        rgb(79, 29, 29);
+      --vinho-light:  rgba(79, 29, 29, 0.85);
+      --vinho-overlay:rgba(79, 29, 29, 0.72);
+      --verde-lima:   rgb(195, 217, 65);
+      --verde-lima-30:rgba(195, 217, 65, 0.3);
+      --ouro:         rgb(219, 154, 70);
+      --neutro-escuro:rgb(35, 31, 32);
+      --neutro-90:    rgba(35, 31, 32, 0.9);
+      --neutro-70:    rgba(35, 31, 32, 0.7);
+      --neutro-10:    rgba(35, 31, 32, 0.1);
+      --branco:       #fff;
+      --branco-90:    rgba(255,255,255,0.9);
+      --branco-60:    rgba(255,255,255,0.6);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-card: 0 4px 32px rgba(35, 31, 32, 0.14);
+    }
+
+    /* ===================================================
+       RESET & BASE
+       box-sizing: border-box garante que padding/border
+       nunca "estourem" o tamanho definido — padrão moderno.
+    =================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--neutro-escuro);
+      color: var(--branco);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ===================================================
+       UTILITÁRIOS REUTILIZÁVEIS
+       Criar classes utilitárias evita repetição e torna o
+       HTML mais legível, como num design system.
+    =================================================== */
+    .container {
+      width: min(90%, 1240px); /* min() = responsivo sem media query */
+      margin-inline: auto;    /* centraliza horizontalmente */
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--verde-lima);
+      padding: 4px 14px;
+      border: 1px solid var(--verde-lima-30);
+      border-radius: 100px;
+    }
+
+    /* ===================================================
+       BOTÕES
+       Dois estilos: primário (preenchido) e outline.
+       :hover usa transform para feedback tátil.
+    =================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 14px 28px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      background: var(--verde-lima);
+      color: var(--neutro-escuro);
+    }
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--branco);
+      border: 1.5px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--branco);
+      transform: translateY(-2px);
+    }
+
+    /* ===================================================
+       ANIMAÇÃO DE ENTRADA — IntersectionObserver (no JS)
+       A classe .reveal inicia invisível/deslocada.
+       Quando o elemento entra na viewport, .visible é
+       adicionada e a animação dispara.
+       Isso é melhor que animar via scroll event porque
+       não bloqueia o thread principal.
+    =================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    /* delay escalonado para grupos de elementos */
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+
+    /* Link do menu ativado*/
+    .actvate{
+        color: var(--verde-lima) !important;
+    }
+
+    /* ===================================================
+       NAVBAR
+       position: sticky mantém o nav visível durante scroll.
+       backdrop-filter: blur cria o efeito frosted glass.
+    =================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 5%;
+      background: rgba(35, 31, 32, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(195, 217, 65, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .navbar-logo {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--branco);
+    }
+    
+    .navbar-logo span { color: var(--verde-lima); }
+
+    .navbar-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .navbar-links a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--branco-60);
+      transition: color var(--transition);
+    }
+    .navbar-links a:hover { color: var(--verde-lima); }
+
+    /* Hamburger (mobile) */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      background-color: none;
+    }
+    
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--branco);
+      transition: var(--transition);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(35, 31, 32, 0.97);
+        padding: 24px 5%;
+        gap: 20px;
+      }
+      .navbar-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+    }
+
+    /* ===================================================
+       HERO SECTION
+       100svh usa "small viewport height" — respeita a
+       barra de endereço do mobile, evitando overflow.
+       O parallax é feito via background-attachment: fixed
+       no desktop (CSS puro, sem JS).
+    =================================================== */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1800&q=80&fit=crop');
+      background-size: cover;
+      background-position: center 30%;
+      /* parallax suave no desktop */
+      background-attachment: fixed;
+    }
+
+    /* overlay gradiente: vinho cobre base, escurece no topo para legibilidade */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(79, 29, 29, 0.78) 0%,
+        rgba(35, 31, 32, 0.55) 60%,
+        rgba(35, 31, 32, 0.75) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(90%, 800px);
+      margin-left: max(5%, calc((100% - 1240px) / 2));
+      padding: 80px 0;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 7vw, 5.5rem); /* fluid type: escala com viewport */
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 16px 0 20px;
+      color: var(--branco);
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--ouro);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--branco-90);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* selo flutuante — elemento decorativo */
+    .hero-badge {
+      position: absolute;
+      bottom: 48px;
+      right: max(5%, calc((100% - 1240px) / 2));
+      z-index: 2;
+      background: rgba(35, 31, 32, 0.85);
+      border: 1px solid rgba(195, 217, 65, 0.25);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+      text-align: center;
+      display: flex;
+      gap: 20px;
+    }
+    .hero-badge-stat { line-height: 1.2; }
+    .hero-badge-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--verde-lima);
+    }
+    .hero-badge-stat span {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .hero-badge-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+      align-self: stretch;
+    }
+
+    @media (max-width: 600px) {
+      .hero-bg { background-attachment: scroll; } /* parallax quebra em mobile */
+      .hero-badge { display: none; }
+    }
+
+    /* ===================================================
+       SEÇÃO DE PROPOSTA DE VALOR
+    =================================================== */
+    .valores {
+      padding: 100px 0;
+      background: var(--neutro-escuro);
+    }
+
+    .section-header { margin-bottom: 56px; }
+    .section-header .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-top: 12px;
+    }
+    .section-header .section-sub {
+      margin-top: 12px;
+      color: var(--branco-60);
+      font-size: 1rem;
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .valores-grid {
+      display: grid;
+      /* auto-fill: cria quantas colunas couberem; minmax impede esmagamento */
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .valor-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(195, 217, 65, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: var(--transition);
+    }
+    .valor-card:hover {
+      background: rgba(195, 217, 65, 0.06);
+      border-color: rgba(195, 217, 65, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .valor-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(195, 217, 65, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 22px;
+    }
+    .valor-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .valor-card p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      line-height: 1.7;
+    }
+
+    /* ===================================================
+       SEÇÃO SOBRE / HISTÓRIA
+       Split layout: texto + imagem lado a lado.
+       CSS Grid com fr evita cálculos manuais de largura.
+    =================================================== */
+    .sobre {
+      padding: 100px 0;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sobre-img-wrap {
+      position: relative;
+      height: 520px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .sobre-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(79,29,29,0.6));
+    }
+    .sobre-img-caption {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      z-index: 2;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--branco-90);
+    }
+
+    .sobre-text .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin: 12px 0 20px;
+    }
+    .sobre-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .sobre-text blockquote {
+      border-left: 3px solid var(--ouro);
+      padding-left: 20px;
+      margin: 28px 0;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ouro);
+      line-height: 1.5;
+    }
+    .sobre-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .sobre-stat strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--verde-lima);
+    }
+    .sobre-stat span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--branco-60);
+    }
+
+    @media (max-width: 900px) {
+      .sobre-grid { grid-template-columns: 1fr; gap: 48px; }
+      .sobre-img-wrap { height: 340px; }
+    }
+
+    /* ===================================================
+       SEÇÃO PRODUTORES
+       Scroll horizontal com snap: desliza como carrossel
+       nativo sem JS. overflow-x: auto + scroll-snap.
+    =================================================== */
+    .produtores { padding: 100px 0; }
+
+    .produtores-scroll {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 24px;
+      /* oculta scrollbar mantendo funcionalidade */
+      scrollbar-width: none;
+    }
+    .produtores-scroll::-webkit-scrollbar { display: none; }
+
+    .produtor-card {
+      flex: 0 0 300px; /* não encolhe nem cresce, fixo em 300px */
+      scroll-snap-align: start;
+      position: relative;
+      height: 420px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .produtor-img {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+    }
+    .produtor-card:hover .produtor-img { transform: scale(1.06); }
+
+    .produtor-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(35,31,32,0.95) 100%);
+      transition: var(--transition);
+    }
+    .produtor-card:hover .produtor-overlay {
+      background: linear-gradient(180deg, rgba(79,29,29,0.3) 0%, rgba(35,31,32,0.97) 100%);
+    }
+
+    .produtor-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px;
+    }
+    .produtor-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .produtor-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      margin-bottom: 14px;
+    }
+    .produtor-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+      opacity: 0;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      line-height: 1.6;
+    }
+    .produtor-card:hover .produtor-details {
+      max-height: 120px;
+      opacity: 1;
+    }
+    .produtor-altitude {
+      display: inline-block;
+      background: rgba(195, 217, 65, 0.15);
+      color: var(--verde-lima);
+      border: 1px solid rgba(195, 217, 65, 0.3);
+      border-radius: 100px;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      font-weight: 500;
+    }
+
+    /* ===================================================
+       SEÇÃO SENSORIAL
+       Full-width escura com textura de fundo.
+    =================================================== */
+    .sensorial {
+      padding: 100px 0;
+      background: var(--vinho);
+      position: relative;
+      overflow: hidden;
+    }
+    .sensorial::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=1400&q=60&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+    }
+
+    .sensorial .container { position: relative; }
+
+    .sensorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sensorial-notas {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .nota-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--ouro);
+      transition: var(--transition);
+    }
+    .nota-item:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateX(6px);
+    }
+    .nota-icon { font-size: 28px; flex-shrink: 0; }
+    .nota-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .nota-item p {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--branco-60);
+    }
+
+    .sensorial-text .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      margin: 12px 0 20px;
+    }
+    .sensorial-text p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .sensorial-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ===================================================
+       MISSÃO / VISÃO / VALORES
+    =================================================== */
+    .institucional {
+      padding: 100px 0;
+      background: rgba(255,255,255,0.015);
+    }
+
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .mvv-card {
+      padding: 40px 32px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .mvv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+    .mvv-card.missao::before  { background: var(--verde-lima); }
+    .mvv-card.visao::before   { background: var(--ouro); }
+    .mvv-card.valores::before { background: var(--vinho); filter: brightness(1.5); }
+
+    .mvv-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--branco-60);
+      margin-bottom: 16px;
+    }
+    .mvv-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .mvv-card p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      line-height: 1.8;
+    }
+    .mvv-valores-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mvv-valores-list li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mvv-valores-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--verde-lima);
+      flex-shrink: 0;
+    }
+
+    /* ===================================================
+       CTA FINAL
+       Imagem de fundo + overlay escuro = contraste máximo
+       para o texto e botões em destaque.
+    =================================================== */
+    .cta-final {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+      text-align: center;
+    }
+    .cta-final-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=75&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .cta-final-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(35, 31, 32, 0.82);
+    }
+    .cta-final .container { position: relative; z-index: 2; }
+    .cta-final .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300;
+      max-width: 700px;
+      margin: 12px auto 20px;
+      line-height: 1.2;
+    }
+    .cta-final p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .cta-final-btns {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ===================================================
+       FOOTER
+    =================================================== */
+    footer {
+      background: rgba(20, 17, 18, 1);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 64px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .navbar-logo { font-size: 1.8rem; margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--branco-60);
+      line-height: 1.7;
+      max-width: 280px;
+      margin-bottom: 24px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .footer-social a:hover {
+      border-color: var(--verde-lima);
+      background: rgba(195, 217, 65, 0.1);
+    }
+
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--branco-60);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      transition: color var(--transition);
+    }
+    .footer-col ul a:hover { color: var(--verde-lima); }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===================================================
+       SEÇÃO: SEPARADOR DECORATIVO
+    =================================================== */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 0 auto 56px;
+      width: fit-content;
+      color: var(--branco-60);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: rgba(195, 217, 65, 0.3);
+    }
+
+    /* Scroll indicator no hero */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--branco-60);
+    }
+    .scroll-hint-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(195,217,65,0.6), transparent);
+      animation: scrollline 2s ease-in-out infinite;
+    }
+    @keyframes scrollline {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
