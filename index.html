@@ -29,6 +29,7 @@
       <li><a href="pages/associates.html">Associados</a></li>
       <li><a href="pages/store.html">Nosso Café</a></li>
       <li><a href="pages/contact.html">Contato</a></li>
+      <li><a>>Projetos</li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -57,7 +58,6 @@
       </div>
     </div>
 
-    <!-- estatísticas flutuantes -->
     <div class="hero-badge reveal reveal-d4">
       <div class="hero-badge-stat">
         <strong>1.200m</strong>
@@ -81,9 +81,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       PROPOSTA DE VALOR
-  ================================================= -->
   <section class="valores" id="valores" aria-label="Nossos diferenciais">
     <div class="container">
       <div class="section-header reveal">
@@ -117,9 +114,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       SOBRE / HISTÓRIA
-  ================================================= -->
   <section class="sobre" id="sobre" aria-label="Nossa história">
     <div class="container">
       <div class="sobre-grid">
@@ -167,9 +161,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       PRODUTORES
-  ================================================= -->
   <section class="produtores" id="produtores" aria-label="Nossos produtores">
     <div class="container">
       <div class="section-header reveal">
@@ -179,7 +170,6 @@
       </div>
     </div>
 
-    <!-- scroll horizontal fora do container para ir até a borda -->
     <div class="container">
       <div class="produtores-scroll reveal" role="list">
 
@@ -267,9 +257,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       SENSORIAL
-  ================================================= -->
   <section class="sensorial" id="sensorial" aria-label="Perfil sensorial">
     <div class="container">
       <div class="sensorial-grid">
@@ -324,9 +311,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       INSTITUCIONAL — MISSÃO / VISÃO / VALORES
-  ================================================= -->
   <section class="institucional" id="institucional" aria-label="Missão, visão e valores">
     <div class="container">
       <div class="section-header reveal" style="text-align:center">
@@ -361,9 +345,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       CTA FINAL
-  ================================================= -->
   <section class="cta-final" id="contato" aria-label="Faça parte da ACAFEG">
     <div class="cta-final-bg" role="img" aria-label="Grãos de café sendo colhidos"></div>
     <div class="cta-final-overlay"></div>
@@ -378,9 +359,6 @@
     </div>
   </section>
 
-  <!-- ================================================
-       FOOTER
-  ================================================= -->
   <footer role="contentinfo">
     <div class="container">
       <div class="footer-grid">
@@ -435,17 +413,7 @@
     </div>
   </footer>
 
-  <!-- ================================================
-       JAVASCRIPT
-       Mantido no final do body — o HTML já foi renderizado
-       quando o JS executa, então não precisa esperar DOMContentLoaded.
-  ================================================= -->
   <script>
-    // --------------------------------------------------
-    // 1. MENU MOBILE
-    // Alternamos a classe "open" para mostrar/ocultar
-    // os links — simples, acessível, sem biblioteca.
-    // --------------------------------------------------
     const toggle = document.getElementById('nav-toggle');
     const menu   = document.getElementById('nav-menu');
 
@@ -453,50 +421,30 @@
       menu.classList.toggle('open');
     });
 
-    // fecha o menu ao clicar em qualquer link
     menu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => menu.classList.remove('open'));
     });
 
-    // --------------------------------------------------
-    // 2. ANIMAÇÕES DE ENTRADA — IntersectionObserver
-    // Por que usar IntersectionObserver em vez de scroll event?
-    // - É assíncrono: não bloqueia o thread principal
-    // - Mais performático: o browser decide quando checar
-    // - Nativo: funciona em todos os browsers modernos
-    //
-    // threshold: 0.15 = a animação dispara quando 15% do
-    // elemento está visível. Ajuste conforme necessário.
-    // --------------------------------------------------
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // unobserve para não re-animar ao rolar de volta
+
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15 });
 
-    // observa todos os elementos com classe .reveal
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // --------------------------------------------------
-    // 3. NAVBAR — muda fundo ao scrollar
-    // Diferença entre usar scroll event aqui vs no CSS:
-    // o CSS não consegue checar a posição do scroll,
-    // então precisamos de JS para adicionar a classe.
-    // requestAnimationFrame garante que rodamos apenas
-    // uma vez por frame — evita layout thrashing.
-    // --------------------------------------------------
     const navbar = document.querySelector('.navbar');
     let ticking  = false;
 
     window.addEventListener('scroll', () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          // já tem o estilo sticky/blur, mas podemos
-          // adicionar borda mais visível ao scrollar
+
           navbar.style.borderBottomColor = window.scrollY > 60
             ? 'rgba(195, 217, 65, 0.2)'
             : 'rgba(195, 217, 65, 0.12)';

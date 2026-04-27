@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conheça os produtores associados da ACAFEG – famílias do sul de Minas Gerais que cultivam cafés especiais com qualidade, origem e rastreabilidade." />
+  <meta name="description"
+    content="Conheça os produtores associados da ACAFEG – famílias do sul de Minas Gerais que cultivam cafés especiais com qualidade, origem e rastreabilidade." />
   <title>Produtores Associados | ACAFEG – Cafés Especiais do Sul de Minas</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="../style/associatesStyle.css">
 </head>
@@ -37,17 +41,10 @@
       <img class="modal-img" id="modal-img" src="" alt="" loading="lazy" />
       <div class="modal-body">
         <div class="modal-header">
-          <p class="modal-geracao" id="modal-geracao"></p>
           <h2 class="modal-nome" id="modal-nome"></h2>
-          <div class="modal-meta" id="modal-meta"></div>
         </div>
         <div class="modal-divider"></div>
         <p class="modal-descricao" id="modal-descricao"></p>
-        <div class="modal-info-grid" id="modal-info-grid"></div>
-        <div class="modal-notas-wrap">
-          <p class="modal-notas-titulo">Notas sensoriais características</p>
-          <div class="modal-notas" id="modal-notas"></div>
-        </div>
         <div class="modal-footer" id="modal-footer"></div>
       </div>
     </div>
@@ -103,38 +100,31 @@
           <div class="filter-left">
             <div class="search-wrap">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
-              <input
-                class="search-input"
-                id="search-input"
-                type="search"
-                placeholder="Buscar produtor ou município..."
-                aria-label="Buscar produtor"
-              />
-            </div>
-            <div class="filter-tabs" role="group" aria-label="Filtrar por processo">
-              <button class="filter-tab active" data-filter="todos" aria-pressed="true">Todos</button>
-              <button class="filter-tab" data-filter="natural" aria-pressed="false">Natural</button>
-              <button class="filter-tab" data-filter="honey" aria-pressed="false">Honey</button>
-              <button class="filter-tab" data-filter="lavado" aria-pressed="false">Lavado</button>
-              <button class="filter-tab" data-filter="anaérobico" aria-pressed="false">Anaeróbico</button>
+              <input class="search-input" id="search-input" type="search" placeholder="Buscar produtor..."
+                aria-label="Buscar produtor" />
             </div>
           </div>
           <div class="filter-right">
             <div class="view-toggle" role="group" aria-label="Modo de visualização">
               <button class="view-btn active" data-view="grid" aria-label="Visualização em grade" aria-pressed="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-                  <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
                 </svg>
               </button>
               <button class="view-btn" data-view="list" aria-label="Visualização em lista" aria-pressed="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
-                  <line x1="8" y1="18" x2="21" y2="18"/>
-                  <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/>
-                  <line x1="3" y1="18" x2="3.01" y2="18"/>
+                  <line x1="8" y1="6" x2="21" y2="6" />
+                  <line x1="8" y1="12" x2="21" y2="12" />
+                  <line x1="8" y1="18" x2="21" y2="18" />
+                  <line x1="3" y1="6" x2="3.01" y2="6" />
+                  <line x1="3" y1="12" x2="3.01" y2="12" />
+                  <line x1="3" y1="18" x2="3.01" y2="18" />
                 </svg>
               </button>
             </div>
@@ -150,10 +140,11 @@
         <div class="associados-grid" id="associados-grid"></div>
         <div class="empty-state" id="empty-state" role="status" aria-live="polite">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
           <strong>Nenhum produtor encontrado</strong>
-          <p>Tente ajustar os filtros ou o termo de busca.</p>
+          <p>Tente ajustar o termo de busca.</p>
         </div>
       </div>
     </section>
@@ -189,7 +180,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="navbar-logo">ACA<span>FEG</span></div>
-          <p>Associação dos Cafeicultores Especiais de Andradas e Região. Cultivando excelência no sul de Minas Gerais desde 2012.</p>
+          <p>Associação dos Cafeicultores Especiais de Andradas e Região. Cultivando excelência no sul de Minas Gerais
+            desde 2012.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram">in</a>
             <a href="#" aria-label="Facebook">fb</a>
@@ -235,182 +227,182 @@
   <script>
     // ================================================================
     // ASSOCIADOS — Adicione ou edite produtores aqui.
-    // Para adicionar um novo: copie um objeto e preencha os campos.
+    // Campos disponíveis: id, nome, descricao, descricaoLonga, imagem
     // ================================================================
     const ASSOCIADOS = [
       {
         id: 1,
-        nome: "Família Rodrigues",
-        fazenda: "Fazenda Boa Vista",
-        municipio: "Andradas, MG",
-        geracao: "3ª geração",
-        altitude: "1.180m",
-        area: "42 ha",
-        processo: ["natural", "honey"],
-        pontuacao: "86,5 SCA",
-        descricao: "Três gerações de dedicação ao café especial. A família Rodrigues é referência em processamento natural com secagem lenta em terreiro suspenso, desenvolvendo lotes com notas marcantes de chocolate e frutas escuras.",
-        descricaoLonga: "José Rodrigues iniciou o cultivo de café na propriedade nos anos 80, quando ainda era commodity. Seu filho Marcos, ao retornar da faculdade de agronomia em 2004, introduziu técnicas de processamento especial que transformaram a qualidade da fazenda. Hoje, com a terceira geração envolvida, a Fazenda Boa Vista é uma das propriedades mais premiadas da associação, com lotes recorrentemente acima de 85 pontos SCA.",
-        notas: ["Chocolate amargo", "Amêndoas", "Frutas vermelhas", "Caramelo"],
-        imagem: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=80",
-        associadoDesde: "2012"
+        nome: "Mário Cavacini Filho, Ivone e Marina Cavacini dos Santos",
+        descricao: "Sr. Marinho encontra nos carros de bois um de seus maiores prazeres. Dona Voninha carrega no sorriso a coragem de seguir em frente, sendo referência de força feminina no campo. Marina, neta da família, assumiu papel de liderança na diretoria da associação.",
+        descricaoLonga: "Sr. Marinho, como é conhecido, encontra nos carros de bois um de seus maiores prazeres de vida. No cuidado com os animais, revela o mesmo equilíbrio e dedicação que leva para a colheita do café — uma força construída entre o trabalho, a família e as tradições da roça.\n\nAo seu lado está Dona Voninha, companheira de caminhada, que carrega no sorriso a coragem de seguir em frente mesmo diante dos desafios do campo. Seus falares são serenos e firmes, e suas atitudes mostram determinação e fé. Com ela, sentimos a força da mulher do campo e uma presença constante de Deus — uma força que nasce da terra, do trabalho e do amor pela família. Juntos, eles mostram que a roça é lar, e é dali que o amor floresce dentro de cada grão de café.\n\nEm sua casa, inspiram, estimulam e cultivam com orgulho uma sucessão feminina baseada no exemplo e na dedicação. Doceira de mão cheia e agricultora, Voninha leva para a associação esperança e união, mostrando que o futuro do café também tem rosto e coração de mulher.\n\nEssa mesma força se reflete em Marina Cavacini dos Santos, que, além de esposa e mãe de Lorena e Luiza, vem fortalecendo seu sonho no café nos últimos anos. Cresceu ouvindo seus avós chamarem o café de 'ouro do Brasil' e, a cada dia, transforma essa herança em coragem e atuação no campo. Dona de muitos talentos, une a costura ao amor pelo agro e à busca constante por conhecimento. Esse caminho a levou a assumir um papel de liderança, tornando-se membro da diretoria da associação. Sua trajetória mostra que tradição e renovação caminham juntas, mantendo vivo o legado do café para as próximas gerações.",
+        imagem: "../img/associados/MarioCavacinifilho.webp"
       },
       {
         id: 2,
-        nome: "Família Almeida",
-        fazenda: "Sítio São Miguel",
-        municipio: "Monte Sião, MG",
-        geracao: "2ª geração",
-        altitude: "1.220m",
-        area: "28 ha",
-        processo: ["honey", "anaérobico"],
-        pontuacao: "87,25 SCA",
-        descricao: "Ana Luiza Almeida herdou o sítio dos pais e reimaginou toda a cadeia produtiva. Pioneira no uso de fermentação anaeróbica em Andradas, seus lotes honey são reconhecidos pela doçura intensa e corpo denso.",
-        descricaoLonga: "Ana Luiza cresceu entre os cafezais do Sítio São Miguel e sabia desde jovem que queria transformar o lugar. Após especialização em processamentos especiais na Etiópia e no Panamá, voltou para Minas com uma visão diferente. Introduziu tanques de fermentação anaeróbica, esteiras de secagem elevadas e um protocolo rigoroso de colheita seletiva. O resultado foram lotes que chegaram a 89 pontos SCA em 2023.",
-        notas: ["Caramelo", "Pêssego", "Mel de flor", "Baunilha"],
-        imagem: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80",
-        associadoDesde: "2014"
+        nome: "Jovane Donizete Cazaroto, Adriana Cazaroto e Estevão",
+        descricao: "Família marcada pelo amor à roça, pela dedicação ao café e pelo valor da liberdade que a vida no campo proporciona. Cultivam árvores, flores e o legado de gerações — com raízes italianas e valores cristãos que guiam cada decisão.",
+        descricaoLonga: "A história dessa família é marcada pelo amor à roça, pela dedicação ao café e pelo valor da liberdade que a vida no campo proporciona. Nessa caminhada, o Sr. Jovane tem papel importante: sempre presente e comprometido, ele relata que ama a roça e escolhe viver nela pela liberdade que esse modo de vida oferece. Jovane e Adriana gostam muito da natureza, e em volta de sua casa e na propriedade cultivam árvores, sendo plantadas e cuidadas para dar seus frutos, além de flores de várias espécies e tamanhos. Sua dedicação contribui para o fortalecimento do trabalho coletivo que hoje sustenta tantas famílias.\n\nAdriana é mulher, esposa, mãe e uma verdadeira raiz da roça. Cresceu ao lado do pai, aprendendo desde cedo o valor do trabalho no campo — base que sustenta sua trajetória até hoje. Ao lado do esposo, construiu uma história de dedicação à terra e ao café, guiada por ensinamentos simples que passam de geração em geração. Hoje, o filho é a maior alegria da família e também a continuidade desse legado: aprende com o pai os saberes do café, enquanto Adriana ensina, com carinho, que cuidar da natureza é também uma forma de amar.\n\nEssa trajetória também carrega uma herança de superação. Vem dos bisavós e avós do Sr. Jovane, imigrantes italianos que conquistaram a primeira terra com muito esforço. Ainda assim, não desistiram. A coragem e o amor pela roça seguiram firmes — valores que foram passados de geração em geração e continuam vivos até hoje. É assim, entre trabalho, história e valores cristãos, que essa família segue cultivando o café, a liberdade e a vida.",
+        imagem: "../img/associados/JovaneDonizeteCazaroto.webp"
       },
       {
         id: 3,
-        nome: "Família Cunha",
-        fazenda: "Alto da Serra",
-        municipio: "Poços de Caldas, MG",
-        geracao: "1ª geração",
-        altitude: "1.350m",
-        area: "18 ha",
-        processo: ["lavado"],
-        pontuacao: "85,75 SCA",
-        descricao: "Roberto Cunha trocou a engenharia civil pelo café há 15 anos. Sua fazenda de altitude máxima produz cafés lavados de acidez precisa e perfil cítrico inconfundível, reflexo direto do terroir de Poços de Caldas.",
-        descricaoLonga: "Roberto Cunha trabalhou por 12 anos como engenheiro civil em São Paulo antes de adquirir uma propriedade em Poços de Caldas. A altitude extrema de 1.350 metros e o solo argiloso da região criaram condições ideais para um café lavado de acidez brilhante. Hoje é Q-Grader certificado e atua também como diretor técnico da ACAFEG, capacitando outros produtores nos protocolos de qualidade.",
-        notas: ["Laranja", "Chá floral", "Acidez cítrica", "Limão siciliano"],
-        imagem: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80",
-        associadoDesde: "2016"
+        nome: "Domingos Leone Neto, Eleni, Silvia e Daniel Leone",
+        descricao: "Família onde o café é mais do que trabalho — é modo de viver, cuidar e ensinar. Daniel representa a associação até a Suíça, pelo projeto da Délica, e carrega nas veias o amor pela lavoura herdado do pai.",
+        descricaoLonga: "Domingos Leone Neto, Eleni, Silvia e Daniel Leone formam uma família onde o café é mais do que trabalho — é modo de viver, cuidar e ensinar.\n\nSr. Domingos carrega sempre um sorriso no rosto e uma sabedoria construída ao longo da vida. Em cada conversa, há uma lição de sustentabilidade: no cuidado com a terra, no respeito aos animais e pássaros que visitam a lavoura, e no zelo com as pessoas que irão apreciar o seu café. Seu conhecimento vem da experiência, da família e também da caminhada junto à associação, onde segue aprendendo e contribuindo.\n\nAo seu lado, Eleni é presença ativa e essencial. Participa das reuniões da associação com a família, trabalha na roça, cuida do lar, e demonstra uma visão atenta ao negócio e ao meio ambiente. É uma mulher de opiniões firmes e cheias de posicionamentos que geram muitos aprendizados.\n\nDaniel, o filho, herdou do pai o amor pelo café e pela lavoura. Em uma área de altitude que contribui para a qualidade diferenciada da produção, ele segue construindo seu próprio caminho, sem se afastar das raízes. Representando a associação, é o rosto que leva essa história até a Suíça, por meio do projeto da Délica. E como ele mesmo diz, com convicção: não se vê fora da lavoura. Sua esposa, Silvia, não atua na lavoura de forma direta, mas ajuda no processo de secagem do café e na pós-colheita, sendo também a maior motivadora e apoiadora de tudo que o marido representa na associação. Juntos, mostram que o legado do café se constrói na união da família, no respeito à natureza e na vontade constante de aprender e evoluir.",
+        imagem: "../img/associados/Domingos Leone Neto.webp"
       },
       {
         id: 4,
-        nome: "Família Pereira",
-        fazenda: "Recanto das Pedras",
-        municipio: "Caldas, MG",
-        geracao: "4ª geração",
-        altitude: "1.090m",
-        area: "65 ha",
-        processo: ["natural", "lavado"],
-        pontuacao: "84,5 SCA",
-        descricao: "A mais antiga família cafeicultora da associação. Quatro gerações moldaram a identidade do Recanto das Pedras, com cafés que carregam a memória afetiva do sul de Minas — encorpados, doces e reconfortantes.",
-        descricaoLonga: "A Família Pereira cultiva café na mesma terra desde 1940. Bisavô, avô, pai e filhos — cada geração adicionou uma camada à história da propriedade. Com 65 hectares, é uma das maiores propriedades da associação, mas mantém colheita 100% manual e processamento artesanal. Seus blends são os mais requisitados por torrefações que buscam o perfil clássico do sul de Minas.",
-        notas: ["Chocolate ao leite", "Nozes", "Açúcar mascavo", "Tâmara"],
-        imagem: "https://images.unsplash.com/photo-1508519286473-ef56d35c1f32?w=900&q=80",
-        associadoDesde: "2012"
+        nome: "Marcos Cavacini e Elisangela Cavacini",
+        descricao: "Sr. Marcos é presença ativa na associação, envolvido na comercialização dos cafés sustentáveis e no manejo das abelhas. Ao seu lado, Elisangela cuida da organização administrativa com atenção e dedicação.",
+        descricaoLonga: "Sr. Marcos é presença ativa na associação, sempre envolvido na comercialização dos cafés sustentáveis e atento às oportunidades que fortalecem o grupo. Na lavoura, cultiva não apenas o café, mas também o cuidado com as abelhas, integrando esse manejo ao seu dia a dia com respeito à natureza. Sempre aberto ao aprendizado, compartilha com generosidade seus conhecimentos sobre o cultivo e ensina, na prática, que é possível conduzir o trabalho com amor, alegria e fé, mesmo diante dos desafios que esse grão tão precioso apresenta.\n\nAo seu lado, Elisangela se destaca pela simpatia, inteligência e parceria constante. É ela quem contribui com a organização dos temas administrativos, apoiando e equilibrando a condução das atividades com atenção e dedicação.\n\nEmbora os filhos tenham seguido caminhos fora do café, o vínculo com a terra permanece vivo. O coração da família continua enraizado nas serras de Andradas, em Minas Gerais, onde o café segue sendo mais do que produção — é identidade, memória e pertencimento.",
+        imagem: "../img/associados/Marcos Cavacini.webp"
       },
       {
         id: 5,
-        nome: "Família Souza",
-        fazenda: "Sítio Três Irmãos",
-        municipio: "Andradas, MG",
-        geracao: "2ª geração",
-        altitude: "1.140m",
-        area: "22 ha",
-        processo: ["honey", "natural"],
-        pontuacao: "85,0 SCA",
-        descricao: "Três irmãos que dividiram a propriedade herdada dos pais e decidiram transformá-la em referência de cafés honey. Cada um cuida de uma etapa — plantio, processamento e comercialização — com divisão perfeita e resultado coletivo.",
-        descricaoLonga: "Paulo, Luís e Carla Souza cresceram vendo os pais lutarem com o café commodity. Ao herdarem a propriedade em 2010, decidiram por uma estratégia diferente: especialização total em cafés especiais processados como honey. Cada irmão se tornou especialista em uma área. O resultado é um sistema de produção integrado e eficiente que serve de modelo para outros associados.",
-        notas: ["Mel", "Damasco", "Cana-de-açúcar", "Flor de laranjeira"],
-        imagem: "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=900&q=80",
-        associadoDesde: "2015"
+        nome: "José Carlos Beneveni",
+        descricao: "Homem caridoso, cheio de saberes da roça, que aparecem no jeito simples e no amor com que conta a história da família. Pai do Anderson e sempre presente no cuidado com a terra.",
+        descricaoLonga: "José Carlos Beneveni é um homem caridoso, cheio de saberes da roça, que aparecem no jeito simples e no amor com que conta a história da família. Pai do Anderson e sempre presente no cuidado com a terra, carrega a experiência de quem vive o dia a dia do campo com dedicação. Ao seu lado, sua esposa é uma mulher de coração bondoso e muito atento. Família acolhedora.",
+        imagem: "../img/associados/José Carlos Beneveni.webp"
       },
       {
         id: 6,
-        nome: "Família Nascimento",
-        fazenda: "Fazenda Vista Alegre",
-        municipio: "Campestre, MG",
-        geracao: "3ª geração",
-        altitude: "1.080m",
-        area: "35 ha",
-        processo: ["natural", "anaérobico"],
-        pontuacao: "86,0 SCA",
-        descricao: "Maria das Graças Nascimento é a primeira mulher a liderar uma propriedade na associação. Com visão inovadora, introduziu fermentação anaeróbica com inoculação de leveduras em 2020, criando perfis sensoriais únicos no território.",
-        descricaoLonga: "Maria das Graças assumiu a fazenda após o falecimento do marido em 2015. Em vez de vender, decidiu reinventar a propriedade. Cursou caficultura na UFLA e trouxe para Campestre técnicas que faziam sucesso no Panamá e na Colômbia. Seus experimentos com leveduras selecionadas geraram lotes de perfil tropical incomum para a região, conquistando torrefações de São Paulo, Rio e até Portugal.",
-        notas: ["Maracujá", "Mirtilo", "Jasmim", "Chocolate branco"],
-        imagem: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=900&q=80",
-        associadoDesde: "2017"
+        nome: "Sebastião Donizete Benevene, Marta Tomaz Benevene e filhas Aline, Adeline e Carol",
+        descricao: "Sebastião, presidente da associação, conduz a caminhada coletiva com propósito desde o início. Em 2025, celebraram 18 anos de história no comércio justo. Ao seu lado, Marta transformou a vida na roça em escolha e legado.",
+        descricaoLonga: "Sebastião é o presidente da associação, que conduz a caminhada coletiva com o mesmo propósito que o move desde o início. Em 2025, celebraram 18 anos de história — uma trajetória construída com muitos aprendizados dentro do comércio justo e com o coração sempre voltado ao bem comum. Acredita na continuidade desse projeto, pensando no futuro de todas as famílias envolvidas.\n\nAo seu lado, Marta traz uma história de transformação e escolha. Como ela mesma conta: sua família não veio do café. Criada na cidade, estudou, trabalhou e seguiu a carreira como funcionária pública, com outros planos de vida. Mas ao conhecer Sebastião, decidiu viver no sítio e ali formaram sua família. Ele, terceira geração de uma linhagem que veio da Itália para trabalhar nas lavouras de café, seguiu o legado conquistado por sua família — e Marta passou a fazer parte dessa história, ajudando na lavoura e no terreiro. Mesmo retornando ao trabalho como funcionária pública, nunca deixou de contribuir com a produção de cafés especiais.\n\nMarta é uma mulher de presença marcante, com uma juventude que se revela à disposição para aprender e fazer. Carrega na memória os tempos iniciais da associação — de paciência, desafios e privações — ao mesmo tempo em que cuidava da casa, da produção e da criação das filhas. Hoje, como avó amorosa, divide seu tempo entre os netos, a família e o trabalho na escola, sempre com o mesmo zelo e dedicação.\n\nCom três filhas e três netos, Sebastião e Marta representam a força de quem constrói não apenas uma produção, mas um legado coletivo — onde o café é caminho, mas as pessoas são o verdadeiro propósito.",
+        imagem: "../img/associados/Sebastião Donizete Benevene.webp"
       },
       {
         id: 7,
-        nome: "Família Ferreira",
-        fazenda: "Chapada Verde",
-        municipio: "Santa Rita de Caldas, MG",
-        geracao: "2ª geração",
-        altitude: "1.260m",
-        area: "30 ha",
-        processo: ["lavado", "honey"],
-        pontuacao: "86,75 SCA",
-        descricao: "Altitude excepcional e microclima único. A Chapada Verde é conhecida pelos meses frios de inverno que desaceleram a maturação dos frutos, resultando em grãos de densidade alta e perfil sensorial marcante.",
-        descricaoLonga: "Eduardo Ferreira herdou a propriedade do pai e percebeu que a altitude de 1.260 metros era o maior ativo que possuía. A maturação lenta dos frutos em meses frios cria grãos densos e adocicados que responem excepcionalmente bem ao processo lavado. Hoje exporta para três países europeus por meio da ACAFEG e foi premiado na Cup of Excellence em 2022.",
-        notas: ["Rapadura", "Uva passa", "Cacau", "Especiarias"],
-        imagem: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=900&q=80",
-        associadoDesde: "2018"
+        nome: "José Carlos de Carvalho, Odimar Crochiquio de Carvalho e Ana Luiza",
+        descricao: "Sr. José Carlos cuida da lavoura com dedicação e presença. Ao seu lado, Odimar é potência: despojada, prática e observadora, vai passando o bastão para as filhas com sabedoria e visão de futuro.",
+        descricaoLonga: "Sr. José Carlos é quem cuida da lavoura com dedicação e presença. Acolhedor, conduz o dia a dia com simplicidade e compromisso, mantendo viva a essência do trabalho no campo. Pai de duas filhas e avô de dois netos. Vê nelas a continuidade firme do legado da família, que segue enraizado no café e nos valores que cultivaram ao longo dos anos.\n\nAo seu lado, Odimar é potência. Despojada, prática e observadora, carrega uma força que se revela tanto no fazer quanto no jeito de enxergar o mundo. Tem uma presença mais reservada, muitas vezes no seu cantinho ali na roça, mas com um olhar atento e uma sabedoria que a tornam uma conselheira valiosa. Aos poucos, vai passando o bastão para as filhas, confiando na nova geração.\n\nMesmo participando de forma mais pontual, Odimar demonstra interesse e visão. Quando convidada, se faz presente — como no Festival do Café — e revela um olhar voltado ao negócio e ao empreendedorismo, mostrando que o futuro da família no café segue cheio de possibilidades. Entre o cuidado da lavoura, a força feminina e a sucessão que se desenha, a família mostra que o legado se constrói com presença, confiança e passagem de saberes entre gerações.",
+        imagem: "../img/associados/José Carlos de Carvalho.webp"
       },
       {
         id: 8,
-        nome: "Família Lima",
-        fazenda: "Sítio Bela Aurora",
-        municipio: "Andradas, MG",
-        geracao: "1ª geração",
-        altitude: "1.100m",
-        area: "14 ha",
-        processo: ["natural"],
-        pontuacao: "84,0 SCA",
-        descricao: "Casal de professores que encontrou no café especial uma segunda vocação. Pequena propriedade, grande cuidado. Cada lote da Bela Aurora é produzido em micro-escala, com atenção milimétrica à colheita e secagem.",
-        descricaoLonga: "Renato e Cláudia Lima compraram o sítio como área de lazer em 2009 e foram seduzidos pelo café ao participar de uma visita técnica da ACAFEG. Iniciantes na caficultura, buscaram formação e passaram a tratar cada parte da pequena propriedade como laboratório. Hoje sua micro-produção de 14 sacas por colheita é disputada por compradores que valorizam lotes de origem única com rastreabilidade absoluta.",
-        notas: ["Baunilha", "Castanha", "Tâmara", "Tabaco suave"],
-        imagem: "https://images.unsplash.com/photo-1497935586047-9395ee9e5069?w=900&q=80",
-        associadoDesde: "2019"
+        nome: "Antônio Carlos Valim, Neusa Valim, Simone e Diego Valim e Manu",
+        descricao: "Diego carrega desde pequeno os ensinamentos do pai Antônio. Curioso e determinado, busca conhecer o mercado e construir um futuro sustentável. Simone, sua esposa, chegou à roça com olhar atento e hoje se especializa na área da saúde com foco em qualidade.",
+        descricaoLonga: "Diego carrega desde pequeno os ensinamentos do pai, Antônio, de quem aprendeu não só o manejo do café, mas também uma forma de viver baseada na união familiar. Essa base o impulsiona até hoje: curioso e determinado, Diego busca conhecer o mercado, aprender continuamente e construir um futuro sustentável para o negócio da família.\n\nNa base dessa família está Neusa, mãe de Diego e esposa do Sr. Antônio, presença que transmite calma, mas que carrega a força de quem trabalhou intensamente quando a vida exigiu. Já mostrou, em muitos momentos, que sabe agir com firmeza e dedicação. Hoje, busca um ritmo mais tranquilo, mas continua sendo uma voz ativa dentro de casa e uma conselheira valiosa, com sua experiência e sabedoria.\n\nAo lado de Diego está Simone, sua esposa, que traz uma história de vida marcada pela superação, pelo cuidado com a saúde e pelo amor à família — mesmo diante de momentos desafiadores. Amorosa, receptiva e com uma comunicação que aproxima as pessoas, ela chegou à roça com um olhar atento e logo enxergou possibilidades de melhoria para o negócio. Hoje, segue se especializando na área da saúde, com foco em qualidade. São parte do comitê de meio ambiente da Associação.\n\nE é na pequena Manu, filha do casal, que esse ciclo continua. Nela, o futuro se anuncia com a mesma essência: família, cuidado e amor pela vida no campo. Juntos, representam uma história que une tradição, renovação e propósito — onde o café é caminho, mas as pessoas são o verdadeiro centro de tudo.",
+        imagem: "../img/associados/Antônio Carlos Valim.webp"
       },
       {
         id: 9,
-        nome: "Família Monteiro",
-        fazenda: "Serra do Café",
-        municipio: "Poços de Caldas, MG",
-        geracao: "3ª geração",
-        altitude: "1.190m",
-        area: "48 ha",
-        processo: ["lavado", "anaérobico"],
-        pontuacao: "87,5 SCA",
-        descricao: "Uma das propriedades com maior diversidade de variedades da associação. A Serra do Café cultiva Geisha, Wush Wush e Acauã lado a lado, criando lotes únicos que expressam o potencial máximo do terroir de Poços.",
-        descricaoLonga: "A família Monteiro é uma das mais antigas de Poços de Caldas. A terceira geração, representada por Tiago Monteiro, decidiu apostar em variedades exóticas ao visitar a Colômbia em 2016. Trouxe sementes de Geisha panamenha e Wush Wush etíope, que se adaptaram surpreendentemente bem ao terroir local. Seus lotes de Geisha processada lavada chegaram a 90 pontos SCA, o maior da associação.",
-        notas: ["Bergamota", "Pêssego branco", "Jasmim", "Acidez vínica"],
-        imagem: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=900&q=80",
-        associadoDesde: "2013"
-      }
-      // ── Para adicionar novo associado, copie um objeto acima ──
+        nome: "Nilton Lozano Bonilha e Fátima",
+        descricao: "Nilton é um homem do trabalho e do negócio. Acredita no comércio justo e une o que aprende nas reuniões com a prática da lavoura e as tecnologias. Fátima, tranquila e observadora, traz ideias importantes e ajuda a fortalecer o grupo.",
+        descricaoLonga: "Nilton é um homem do trabalho e do negócio. Acredita no comércio justo e está sempre buscando aprender nas reuniões da associação. Junta o que aprende com a prática da lavoura e com as tecnologias, fazendo do café mais do que produção — um negócio com visão de futuro. Está sempre participando e ajudando nas decisões, principalmente na parte de venda dos cafés.\n\nFátima, sua esposa, é tranquila, inteligente e muito observadora. É atenciosa com as pessoas e entende bem do café. Quando fala, traz ideias importantes e ajuda a enxergar melhor as situações do dia a dia. Ela participa em alguns momentos, mas sempre somando com boas contribuições. Tem um olhar cuidadoso e ajuda a fortalecer o grupo com sua forma de pensar.\n\nJuntos, mostram que o café se faz com parceria, união e vontade de crescer — cuidando bem da lavoura e também do futuro da família e da associação.",
+        imagem: "../img/associados/Nilton Lozano Bonilha.webp"
+      },
+      {
+        id: 10,
+        nome: "Fernando Henrique Cazaroto, Pamela Maria de Carvalho Cazaroto e Ana Luiza",
+        descricao: "Pamela é pura paixão pelo café. Mulher de fibra, fala com naturalidade sobre rotina, maternidade e cafeicultura. Fernando carrega um olhar atento ao meio ambiente e ao legado que deixará para os filhos.",
+        descricaoLonga: "Pamela é pura paixão pelo café. Mulher de fibra, ilumina os ambientes por onde passa e se destaca pela atuação ativa na associação. Cheia de opinião e sensibilidade, fala com naturalidade sobre a rotina, a maternidade, o casamento e a cafeicultura, conectando pessoas e histórias. Seu comprometimento também se reflete na liderança, tendo sido nomeada para um cargo na assembleia, onde segue contribuindo com visão e presença.\n\nFernando, sempre presente na associação, carrega um olhar atento ao meio ambiente e ao cuidado com o planeta. Como pai, tem a clareza de que suas escolhas hoje são o legado que deixará para os filhos, e por isso atua com responsabilidade e propósito.\n\nJuntos, representam uma família que vive o café com intensidade, consciência e participação ativa — fortalecendo não só a produção, mas também a identidade e o futuro coletivo da associação.",
+        imagem: "../img/associados/Fernando Henrique Cazaroto.webp"
+      },
+      {
+        id: 11,
+        nome: "Fernando Ribeiro, Berenice e Tamires Ribeiro",
+        descricao: "Tamires é a primeira mulher da família a participar de todos os processos de cultivo. Formada em Biologia com especialização em Genética e Melhoramento Vegetal, voltou à roça dos pais unindo ciência, tradição e sustentabilidade.",
+        descricaoLonga: "Palavras da Tamires: 'Minha família sempre trabalhou com a cultura do café nas montanhas de Andradas/Minas Gerais e eu sou a primeira mulher a participar efetivamente de todos os processos de cultivo. Eu nasci e fui criada até meus 17 anos, quando saí para estudar e trabalhar. Me formei em Biologia e aprofundei meus estudos na área de Genética e Melhoramento Vegetal pelo Instituto Agronômico de Campinas/SP, onde participei de projetos voltados para a agricultura. Após 15 anos, com o início da pandemia, voltei para passar uma temporada no sítio dos meus pais. Neste período, ajudei com a colheita do café e começamos a aplicar algumas mudanças para melhorar a qualidade dos nossos grãos. Desde então, iniciamos vários projetos de cultivo e de pós-colheita para melhorarmos tanto a produtividade quanto a qualidade do nosso produto. Outra vertente que estamos priorizando são os projetos ambientais, como o reflorestamento, introdução de abelhas e sustentabilidade. Durante este período que estamos trabalhando juntos unimos o conhecimento, a experiência e vivência dos meus pais com os meus estudos para formarmos uma equipe e buscarmos melhorias para o nosso sítio. Hoje estamos muito felizes por disponibilizarmos cafés especiais para o mercado consumidor, por preservar o meio ambiente e por trabalharmos e evoluirmos juntos.'",
+        imagem: "../img/associados/Fernando Ribeiro.webp"
+      },
+      {
+        id: 12,
+        nome: "Alexandra Conceição, Paulo Mendes de Carvalho e Luis Otávio",
+        descricao: "Mulher, esposa e cafeicultora dedicada, vive a rotina da roça com responsabilidade e paixão. Mesmo com o marido afastado, segue tocando tudo com organização, cuidando do trabalho e ensinando o filho.",
+        descricaoLonga: "Ela é esposa, mulher e cafeicultora de raiz. Coloca a mão na massa, gosta do que faz e vive o dia a dia da roça com dedicação. No filho, carrega o amor de mãe e também o compromisso de ensinar, desde cedo, como cuidar do café e dar continuidade ao trabalho da família.\n\nSeu marido, Paulo Mendes, está neste momento afastado, e ela segue firme, tocando as atividades. É organizada, mantém tudo bem cuidado, com documentos guardados e em ordem, mostrando responsabilidade com o que faz.\n\nPrefere estar na lida da roça, cuidando das suas tarefas, do que parada. Mesmo quando recebe visitas, está sempre atenta ao trabalho, querendo deixar tudo em dia. Participou de um encontro de insumos na associação e, quando convidada, pode estar presente em outros momentos também.\n\nTem opinião formada e fala com clareza. Já comentou sobre os concursos de café, destacando que, muitas vezes, quem ganha nem sempre está na lida do dia a dia da roça, o que considera injusto. Seu olhar é de quem vive o café na prática e valoriza quem está ali todos os dias fazendo acontecer. É uma mulher forte, prática e comprometida, que representa bem a essência de quem vive da terra e do café.",
+        imagem: "../img/associados/Alexandra Conceição.webp"
+      },
+      {
+        id: 13,
+        nome: "Antonio Carlos Crochichi",
+        descricao: "Família sempre ligada ao cultivo do café, plantando com responsabilidade e respeito ao meio ambiente. Produtor de orgânicos de 2014 a 2022, entrou para a ACAFEG em 2025 com o filho Guilherme ao seu lado.",
+        descricaoLonga: "Palavras dele: 'Minha família sempre esteve no cultivo do café. Plantando com responsabilidade e respeito ao meio ambiente. Meus filhos (Guilherme Mariano Crochichi), mesmo tendo outras ocupações sempre quiseram o plano B, daí sempre investimos em novas plantações. Fui produtor de orgânicos de 2014 a 2022 e em 2025 entrei para a ACAFEG.'",
+        imagem: "../img/associados/Antonio Carlos Crochichi.webp"
+      },
+      {
+        id: 14,
+        nome: "Ana Carla de Carvalho, Ramon e José Henrique",
+        descricao: "Ana Carla, que já atuou no mundo da moda, escolheu a vida na roça ao lado do marido Ramon. Em 2025, conquistaram o prêmio de café sustentável no Festival de Andradas e vivem a alegria de se tornarem pais.",
+        descricaoLonga: "Ana Carla sempre foi muito ativa e já teve atuação no mundo da moda, com a confecção em Jacutinga/MG. Hoje, ao lado do marido Ramon, escolheu a vida na roça — e, como eles mesmos dizem, estão felizes com esse caminho.\n\nÉ uma família presente na prática, no dia a dia da lavoura. Ana Carla é colaborativa, tem iniciativa e traz uma bagagem de organização e visão que soma ao trabalho no campo.\n\nEm 2025, conquistaram o prêmio de café sustentável no Festival de Andradas, um reconhecimento importante que mostra o cuidado e a dedicação com a produção. Agora, vivem também a alegria de uma nova etapa: se tornaram pais de um lindo menino, fortalecendo ainda mais os laços da família e o futuro ligado ao café.\n\nEntre mudanças, conquistas e novos começos, Ramon e Ana Carla constroem sua história com simplicidade, união e alegria na roça.",
+        imagem: "../img/associados/Ana Carla de Carvalho.webp"
+      },
+      {
+        id: 15,
+        nome: "Norberto Mascareli, Luciene Mascareli, Guilherme Mascareli e Alessandra Mascareli",
+        descricao: "Norberto é um dos associados desde os primeiros passos da ACAFEG. Guilherme, seu filho, é cafeicultor dedicado e cuidadoso. Alessandra, a Alê, é a força impulsionadora da família — organizada, inovadora e com visão de mercado.",
+        descricaoLonga: "Sr. Norberto é um dos associados desde os primeiros passos da ACAFEG, sempre ativo e presente na colheita. Produtor dedicado, é daqueles que encontram na lavoura seu lugar de paz e realização. Foi ali que construiu sua vida, criou os filhos e fortaleceu, dia após dia, o vínculo com o café e com a terra.\n\nAo seu lado, Luciene traz inteligência e sensibilidade. Sempre foi participativa, e hoje vive um momento mais voltado a acompanhar e permitir que a nova geração siga seu caminho. Mesmo assim, quando convidada, se faz presente em eventos e momentos importantes, mantendo o vínculo com a comunidade e com a história que ajudou a construir.\n\nGuilherme é um cafeicultor dedicado e cuidadoso, daqueles que colocam amor em cada detalhe da lavoura. Sempre disposto a aprender, observa, escuta e busca evoluir, construindo seu caminho com atenção e respeito ao processo.\n\nAlessandra, a Alê, é amorosa, mãe e uma força impulsionadora. É dela o incentivo que move: 'vamos fazer'. Com sede de conhecimento, assume com competência a organização da parte administrativa e burocrática, trazendo estrutura e clareza para as decisões. Além disso, sua atuação em uma empresa de café amplia sua visão de mercado e fortalece ainda mais sua contribuição. Com um perfil inovador, organizado e cheio de iniciativa, Alê soma ao trabalho de Guilherme, mostrando que, juntos, constroem não apenas uma produção de qualidade, mas também um futuro promissor dentro do café.",
+        imagem: "../img/associados/Norberto Mascareli.webp"
+      },
+      {
+        id: 16,
+        nome: "Regiane Aparecida Pereira Silvieri e Pedro Donizetti Silvieri",
+        descricao: "Desde os 6 anos, Regiane já ajudava o pai nos terreiros de café. Sempre decidida, escolheu ficar na roça. Ela e Pedro, que também tem o café nas veias, voltaram à terra após tentarem a cidade — e seguem juntos cultivando o legado da família.",
+        descricaoLonga: "A história dessa família começa lá atrás, quando o avô veio de Portugal e se encantou pela avó, que era italiana. Foi ali que tudo começou, com muito trabalho, união e amor pela terra.\n\nDesde pequenininha, Regiane já vivia no meio do café. Cresceu brincando nos terreiros, no meio dos grãos espalhados pelo sol. E não demorou muito pra pegar gosto: com apenas 6 aninhos, já estava com a vassoura na mão, ajudando o pai, toda animada.\n\nSempre muito decidida, escolheu ficar na roça e cuidar do que amava. Mais tarde, se casou com o Pedro, que também tem o café correndo nas veias e um amor grande pelo que faz. Buscaram novas oportunidades de trabalho na cidade, mas o coração falou mais alto. Voltaram pra roça, pro café, pras raízes. E hoje seguem juntos, cuidando da lavoura com o mesmo carinho que aprenderam com seus pais.\n\nUm casal simples, trabalhador, que entrou na associação com um propósito bonito: passar pros filhos tudo aquilo que herdaram — o amor pela terra, o respeito pelo trabalho e a tradição da família.",
+        imagem: "../img/associados/Regiane Silvieri.webp"
+      },
+      {
+        id: 17,
+        nome: "Rivanildo Adauto de Lima e filha",
+        descricao: "A busca constante por conhecimento é sua marca. Descobriu o potencial dos cafés especiais na sua região e mergulhou no mercado, fascinado pela complexidade da área e pelo potencial da agricultura regenerativa integrada à apicultura.",
+        descricaoLonga: "Palavras dele: 'Uma característica marcante minha é a busca constante por conhecimento, afinal, como diz um amigo: o saber não ocupa espaço. O que mais me encanta na cafeicultura é a perspectiva de evolução constante, seja no âmbito tecnológico, no aprendizado ou no retorno financeiro.\n\nMinha trajetória no café começou por influência de amigos e familiares, já que a maioria deles são cafeicultores. No entanto, nem sempre dei a devida importância ao setor; por muito tempo, dediquei-me a outras atividades, como apicultura, construção civil, marcenaria e a escavação de poços australianos.\n\nEu via o pessoal trabalhando sempre de maneira muito tradicional, até que descobri o potencial dos cafés especiais na minha região, favorecido pelo clima, altitude e solo. Decidi estudar, fiz cursos e mergulhei no mercado de cafés especiais. Fiquei encantado com a complexidade da área e, desde então, foco em aprender e aplicar novas tecnologias. O que me chamou a atenção na ACAFEG foi a dedicação em fazer a diferença com carinho, conhecimento e boas práticas. Após assistir a algumas palestras, senti-me motivado a praticar a agricultura regenerativa. Como tenho uma verdadeira fascinação por abelhas, meu objetivo é integrar colmeias ao cafezal, adotando práticas que aumentem o pasto apícola e eliminando o uso de agrotóxicos.'",
+        imagem: "../img/associados/Rivanildo de Lima.webp"
+      },
+      {
+        id: 18,
+        nome: "Arthur Moriconi, Waldemore Moriconi, Maria Aparecida Moriconi e Mariane Vedana",
+        descricao: "São mais de 120 anos de história da família com o café. Em 2020, adquiriram o sítio para produzir cafés especiais sustentáveis, adotando agricultura regenerativa e um rigoroso processo de pós-colheita com separação de lotes.",
+        descricaoLonga: "Palavras do Arthur: 'São mais de 120 anos de história da nossa família com a produção do café, mas nosso núcleo familiar adquiriu o sítio em 2020, realizando um sonho de voltar às raízes da família e nos dedicar à produção de cafés especiais sustentáveis. No manejo adotamos vários preceitos sustentáveis que provêm de técnicas da agricultura regenerativa e agroecológica. Em nosso pós-colheita realizamos um processo minucioso de separação de lotes por gleba e por dia de colheita, além de realizar técnicas focando na melhor qualidade possível dos grãos.\n\nRealizamos tudo com muito cuidado e amor, pois a nossa missão é produzir com sustentabilidade e alta qualidade.' Sua família o ajuda diretamente: seus pais Waldemore Moriconi e Maria Aparecida Lourenço da Silva Moriconi vieram da cidade para sonhar com o filho, assim como sua esposa Mariane Cristina Vedana, psicóloga e parte ativa no sonho do marido.",
+        imagem: "../img/associados/Arthur Moriconi.webp"
+      },
+      {
+        id: 19,
+        nome: "Luis Fernando",
+        descricao: "Vive em São Paulo, mas mantém o olhar voltado para o campo e para o futuro no café. Está iniciando sua participação na associação e investindo na região de forma consciente, construindo seu caminho com planejamento e visão.",
+        descricaoLonga: "Luis Fernando vive hoje em São Paulo, ao lado da esposa, mas mantém o olhar voltado para o campo e para o futuro no café. Com vontade de construir um negócio sustentável, vem se aproximando da atividade com responsabilidade, buscando entender cada passo antes de crescer.\n\nEstá iniciando sua participação na associação e investindo na região de forma consciente, respeitando o tempo das coisas e aprendendo com quem já está na lida. Seu caminho começa com planejamento e visão, mostrando que o futuro no café também se constrói com preparo e boas escolhas.\n\nMesmo à distância, segue conectado com esse propósito — dando os primeiros passos para, aos poucos, fazer do café parte da sua história.",
+        imagem: "../img/associados/LuisFernando.webp"
+      },
+      {
+        id: 20,
+        nome: "Maria Zenaide Carvalho",
+        descricao: "Após quase 40 anos na cidade, Maria Zenaide e o irmão João Paulo decidiram retomar as raízes e reconstruir a vida no campo. Unem suas formações como consultores ao trabalho como produtores, guiados pelo propósito do comércio justo.",
+        descricaoLonga: "Maria Zenaide, seus pais e irmão sempre tiveram a família ligada à lavoura de café. O pai foi para São Paulo, trabalhou em empresas farmacêuticas e foi lá que criou os filhos. Depois de se aposentar, voltou ao seu primeiro amor: o café.\n\nApós quase 40 anos na cidade, ela e o irmão, João Paulo, decidiram retomar suas raízes e reconstruir a vida profissional e familiar no campo. Hoje, unem suas formações como consultores ao trabalho como produtores rurais, trazendo um olhar mais amplo para o negócio.\n\nNo que fazem, carregam um propósito claro: trabalhar com responsabilidade e pensar no bem de todos. A preocupação com o bem comum, muito presente nos princípios do comércio justo, guia suas escolhas — buscando não só produzir, mas também gerar impacto positivo para as pessoas, para a comunidade e para o futuro.",
+        imagem: "../img/associados/Maria Zenaide Carvalho.webp"
+      },
+      {
+        id: 21,
+        nome: "José Batista Mascareli, Ana Maria, Douglas Mascareli e Gustavo Mascareli",
+        descricao: "Sr. José e os filhos Douglas e Gustavo são ativos na associação, sempre buscando aprender para melhorar o trabalho na lavoura. Dona Ana é a base da família: participativa, com visão de futuro e olhar empreendedor.",
+        descricaoLonga: "O Sr. José e os filhos, Douglas Mascareli e Gustavo Mascareli, são ativos na associação, participam das reuniões e estão sempre buscando aprender para melhorar o trabalho na lavoura. É uma família que valoriza o conhecimento e coloca em prática no dia a dia.\n\nDona Ana é mãe e base da família. Participativa, tem visão de futuro e um olhar empreendedor, acompanhando tudo com sabedoria e firmeza. Seu jeito acolhedor mostra que o café vai além da produção — está no cuidado diário e na união da família.\n\nJuntos, são exemplo de trabalho, parceria e construção de um futuro no café.",
+        imagem: "../img/associados/José Batista Mascareli.webp"
+      },
+      {
+        id: 22,
+        nome: "Aline Benevene Manzoli, Ronaldo Manzoli, Ana Clara e Augusto",
+        descricao: "Aline, coordenadora da ACAFEG, vive o café com propósito e responsabilidade. Generosa e dedicada, é uma das principais lideranças da associação. Sonha em se tornar Q Grader e desenvolver marcas — com uma base forte e muitas possibilidades pela frente.",
+        descricaoLonga: "Aline, coordenadora da ACAFEG, vive o café com propósito e responsabilidade. Ela equilibra dois caminhos: o amor que herdou do pai pelo negócio sustentável e a preparação para assumir, cada vez mais, a condução da associação, junto com a parceria e união do marido Ronaldo Manzoli, que também é produtor rural e ama o café.\n\nMãe, filha e neta amorosa, Aline também vê o futuro nascer dentro de casa: Clarinha já demonstra carinho pelo café, e o pequeno Augusto começa a dar seus primeiros passos, como um mini produtor, acompanhando o dia a dia da roça quando vem da escola, mesmo que apenas como brincadeira.\n\nGenerosa, competente e muito dedicada, Aline busca sempre fazer o melhor para todos ao seu redor, criando oportunidades e fortalecendo pessoas. É uma das principais lideranças da associação, com um olhar para o futuro e para o crescimento coletivo.\n\nDentro do café, sonha alto e se prepara para isso: quer se especializar cada vez mais, como Q Grader e também no desenvolvimento de marcas. Seu caminho é de construção, aprendizado e liderança — com muitas possibilidades pela frente e uma base forte para seguir crescendo.",
+        imagem: "../img/associados/Aline Manzoli.webp"
+      },
     ];
 
-    // ================================================================
-    // State
-    // ================================================================
-    let activeFilter = "todos";
-    let searchQuery  = "";
-    let activeView   = "grid";
 
-    // ================================================================
-    // Render
-    // ================================================================
+    let searchQuery = "";
+    let activeView = "grid";
+
+
     function getFiltered() {
       return ASSOCIADOS.filter(a => {
-        const matchFilter = activeFilter === "todos" || a.processo.includes(activeFilter);
         const q = searchQuery.toLowerCase();
-        const matchSearch = !q
+        return !q
           || a.nome.toLowerCase().includes(q)
-          || a.fazenda.toLowerCase().includes(q)
-          || a.municipio.toLowerCase().includes(q)
           || a.descricao.toLowerCase().includes(q);
-        return matchFilter && matchSearch;
       });
     }
 
     function renderCards() {
-      const grid   = document.getElementById("associados-grid");
-      const empty  = document.getElementById("empty-state");
+      const grid = document.getElementById("associados-grid");
+      const empty = document.getElementById("empty-state");
       const filtered = getFiltered();
 
       grid.innerHTML = "";
@@ -430,42 +422,18 @@
         card.className = `associado-card fade-up ${delay}`;
         card.setAttribute("role", "button");
         card.setAttribute("tabindex", "0");
-        card.setAttribute("aria-label", `Ver detalhes de ${a.nome} – ${a.fazenda}`);
-
-        const processoTags = a.processo
-          .map(p => `<span class="card-tag">${p.charAt(0).toUpperCase() + p.slice(1)}</span>`)
-          .join("");
+        card.setAttribute("aria-label", `Ver detalhes de ${a.nome}`);
 
         card.innerHTML = `
           <div class="card-img-wrap">
-            <img src="${a.imagem}" alt="Foto da ${a.fazenda}" loading="lazy" />
+            <img src="${a.imagem}" alt="Foto de ${a.nome}" loading="lazy" />
             <div class="card-img-overlay" aria-hidden="true"></div>
-            <span class="card-sca-badge" aria-label="Pontuação SCA: ${a.pontuacao}">${a.pontuacao}</span>
-            <p class="card-municipio" aria-label="Município: ${a.municipio}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              ${a.municipio}
-            </p>
           </div>
           <div class="card-body">
-            <div class="card-main-info">
-              <p class="card-geracao">${a.geracao} · Desde ${a.associadoDesde}</p>
-              <h3 class="card-nome">${a.fazenda}</h3>
-            </div>
+            <h3 class="card-nome">${a.nome}</h3>
             <p class="card-descricao">${a.descricao}</p>
-            <div class="card-tags" role="list" aria-label="Processos">${processoTags}</div>
             <div class="card-footer">
-              <span class="card-altitude">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
-                ${a.altitude} · ${a.area}
-              </span>
-              <span class="card-ver-mais" aria-hidden="true">
-                Ver mais →
-              </span>
+              <span class="card-ver-mais" aria-hidden="true">Ver mais →</span>
             </div>
           </div>
         `;
@@ -476,10 +444,7 @@
         grid.appendChild(card);
       });
 
-      // Apply view class
       applyView();
-
-      // Re-observe
       document.querySelectorAll(".fade-up:not(.visible)").forEach(el => observer.observe(el));
     }
 
@@ -500,55 +465,10 @@
       if (!a) return;
 
       document.getElementById("modal-img").src = a.imagem;
-      document.getElementById("modal-img").alt = `Foto da ${a.fazenda}`;
-      document.getElementById("modal-geracao").textContent = `${a.geracao} · Associado desde ${a.associadoDesde}`;
-      document.getElementById("modal-nome").textContent = `${a.fazenda} — ${a.nome}`;
-
-      // Meta
-      document.getElementById("modal-meta").innerHTML = `
-        <span class="modal-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          ${a.municipio}
-        </span>
-        <span class="modal-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
-          ${a.altitude}
-        </span>
-        <span class="modal-meta-item" style="color:var(--ouro)">
-          ${a.pontuacao}
-        </span>
-      `;
-
+      document.getElementById("modal-img").alt = `Foto de ${a.nome}`;
+      document.getElementById("modal-nome").textContent = a.nome;
       document.getElementById("modal-descricao").textContent = a.descricaoLonga || a.descricao;
 
-      // Info grid
-      const processos = a.processo.map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(", ");
-      document.getElementById("modal-info-grid").innerHTML = `
-        <div class="modal-info-item">
-          <p class="modal-info-label">Área</p>
-          <p class="modal-info-value">${a.area}</p>
-        </div>
-        <div class="modal-info-item">
-          <p class="modal-info-label">Processos</p>
-          <p class="modal-info-value">${processos}</p>
-        </div>
-        <div class="modal-info-item">
-          <p class="modal-info-label">Altitude</p>
-          <p class="modal-info-value">${a.altitude}</p>
-        </div>
-      `;
-
-      // Notas
-      document.getElementById("modal-notas").innerHTML = a.notas
-        .map(n => `<span class="modal-nota">${n}</span>`)
-        .join("");
-
-      // Footer
       document.getElementById("modal-footer").innerHTML = `
         <a href="produtos.html" class="btn btn-primary">Ver cafés disponíveis</a>
         <a href="#contato" class="btn btn-outline">Entrar em contato</a>
@@ -571,22 +491,6 @@
     });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
 
-    // ================================================================
-    // Filters + Search
-    // ================================================================
-    document.querySelectorAll(".filter-tab").forEach(tab => {
-      tab.addEventListener("click", () => {
-        document.querySelectorAll(".filter-tab").forEach(t => {
-          t.classList.remove("active");
-          t.setAttribute("aria-pressed", "false");
-        });
-        tab.classList.add("active");
-        tab.setAttribute("aria-pressed", "true");
-        activeFilter = tab.dataset.filter;
-        renderCards();
-      });
-    });
-
     let searchTimeout;
     document.getElementById("search-input").addEventListener("input", e => {
       clearTimeout(searchTimeout);
@@ -596,7 +500,6 @@
       }, 280);
     });
 
-    // View toggle
     document.querySelectorAll(".view-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         document.querySelectorAll(".view-btn").forEach(b => {
@@ -610,9 +513,6 @@
       });
     });
 
-    // ================================================================
-    // Hero stat counter animation
-    // ================================================================
     function animateCount(el, target, duration = 1200) {
       let start = 0;
       const step = (timestamp) => {
@@ -636,9 +536,6 @@
 
     statObserver.observe(document.getElementById("stat-total"));
 
-    // ================================================================
-    // IntersectionObserver
-    // ================================================================
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -650,9 +547,6 @@
 
     document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-    // ================================================================
-    // Nav mobile
-    // ================================================================
     document.getElementById("nav-toggle").addEventListener("click", () => {
       document.getElementById("nav-menu").classList.toggle("open");
     });
@@ -664,11 +558,9 @@
         : "rgba(35,31,32,0.95)";
     }, { passive: true });
 
-    // ================================================================
-    // Init
-    // ================================================================
     renderCards();
   </script>
 
 </body>
+
 </html>
