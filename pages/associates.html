@@ -97,16 +97,6 @@
     <div class="filter-bar" role="navigation" aria-label="Filtros">
       <div class="container">
         <div class="filter-inner">
-          <div class="filter-left">
-            <div class="search-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              <input class="search-input" id="search-input" type="search" placeholder="Buscar produtor..."
-                aria-label="Buscar produtor" />
-            </div>
-          </div>
           <div class="filter-right">
             <div class="view-toggle" role="group" aria-label="Modo de visualização">
               <button class="view-btn active" data-view="grid" aria-label="Visualização em grade" aria-pressed="true">
@@ -138,14 +128,6 @@
     <section class="section-associados" aria-label="Lista de produtores associados">
       <div class="container">
         <div class="associados-grid" id="associados-grid"></div>
-        <div class="empty-state" id="empty-state" role="status" aria-live="polite">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <strong>Nenhum produtor encontrado</strong>
-          <p>Tente ajustar o termo de busca.</p>
-        </div>
       </div>
     </section>
 
@@ -386,37 +368,15 @@
       },
     ];
 
-
-    let searchQuery = "";
     let activeView = "grid";
-
-
-    function getFiltered() {
-      return ASSOCIADOS.filter(a => {
-        const q = searchQuery.toLowerCase();
-        return !q
-          || a.nome.toLowerCase().includes(q)
-          || a.descricao.toLowerCase().includes(q);
-      });
-    }
 
     function renderCards() {
       const grid = document.getElementById("associados-grid");
-      const empty = document.getElementById("empty-state");
-      const filtered = getFiltered();
 
       grid.innerHTML = "";
+      document.getElementById("count-visible").textContent = ASSOCIADOS.length;
 
-      if (filtered.length === 0) {
-        empty.classList.add("visible");
-        document.getElementById("count-visible").textContent = "0";
-        return;
-      }
-
-      empty.classList.remove("visible");
-      document.getElementById("count-visible").textContent = filtered.length;
-
-      filtered.forEach((a, i) => {
+      ASSOCIADOS.forEach((a, i) => {
         const delay = i < 6 ? `fade-up-delay-${(i % 3) + 1}` : "";
         const card = document.createElement("article");
         card.className = `associado-card fade-up ${delay}`;
@@ -490,15 +450,6 @@
       if (e.target === document.getElementById("modal-overlay")) closeModal();
     });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-
-    let searchTimeout;
-    document.getElementById("search-input").addEventListener("input", e => {
-      clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(() => {
-        searchQuery = e.target.value.trim();
-        renderCards();
-      }, 280);
-    });
 
     document.querySelectorAll(".view-btn").forEach(btn => {
       btn.addEventListener("click", () => {
