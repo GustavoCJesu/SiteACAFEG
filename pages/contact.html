@@ -6,6 +6,12 @@
   <meta name="description" content="Entre em contato com a ACAFEG – Associação dos Cafeicultores Especiais de Andradas e Região. Fale com nossa equipe, tire dúvidas ou saiba como se tornar um associado." />
   <title>Contato | ACAFEG – Cafés Especiais do Sul de Minas</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="../img/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../img/favicon/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -36,7 +42,7 @@
     <section class="hero-inner" aria-label="Cabeçalho da página de contato">
       <div class="container">
         <nav class="hero-breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Início</a>
+          <a href="../index.html">Início</a>
           <span>›</span>
           <span>Contato</span>
         </nav>
@@ -153,6 +159,7 @@
               <li class="assunto-item"><span class="assunto-dot" aria-hidden="true"></span>Parcerias com torrefações e importadores</li>
               <li class="assunto-item"><span class="assunto-dot" aria-hidden="true"></span>Imprensa, mídia e conteúdo editorial</li>
               <li class="assunto-item"><span class="assunto-dot" aria-hidden="true"></span>Dúvidas sobre certificações e rastreabilidade</li>
+              <li class="assunto-item"><span class="assunto-dot" aria-hidden="true"></span>Canal de compliance e conduta ética</li>
             </ul>
 
             <div class="endereco-block">
@@ -164,9 +171,9 @@
                 Onde estamos
               </h3>
               <address>
-                Rua Coronel José Justino, 320<br>
-                Centro — Andradas, MG<br>
-                CEP 37795-000
+                Estrada Andradas/Gabirobal km14,<br> 
+                Andradas - MG,<br>
+                37795-000
               </address>
               <div class="endereco-horarios">
                 <div class="horario-row">
@@ -504,6 +511,52 @@
       </div>
     </section>
 
+    <!-- ─── Canal de Ética (discreto) ───────────────────────────────── -->
+    <section class="section-etica" aria-label="Canal de ética e conduta">
+      <div class="container">
+        <details class="etica-disclosure">
+          <summary class="etica-summary">
+            <span>Canal de ética e conduta</span>
+            <svg class="etica-summary-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+
+          <div class="etica-body">
+            <p class="etica-text">
+              Tem algo para nos contar com tranquilidade — sobre conduta, boas práticas ou algo que
+              te incomodou? Este canal é reservado e, se preferir, você pode enviar sem se identificar.
+            </p>
+
+            <form id="etica-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="etica-nome">Nome <span style="color:rgba(255,255,255,0.25)">(opcional)</span></label>
+                  <input type="text" id="etica-nome" name="nome" class="form-control" placeholder="Se preferir, pode deixar em branco" autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="etica-contato">Contato <span style="color:rgba(255,255,255,0.25)">(opcional)</span></label>
+                  <input type="text" id="etica-contato" name="contato" class="form-control" placeholder="E-mail ou telefone, se quiser retorno" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="etica-mensagem">O que você gostaria de nos contar</label>
+                <textarea id="etica-mensagem" name="mensagem" class="form-control" placeholder="Conte com calma o que aconteceu..." required></textarea>
+                <span class="field-error" id="etica-mensagem-error">Escreva uma mensagem antes de enviar.</span>
+              </div>
+
+              <button type="submit" class="btn-etica-submit" id="etica-btn-submit">Enviar com discrição</button>
+            </form>
+
+            <p class="etica-success" id="etica-success" aria-live="polite">
+              Obrigado pela confiança. Sua mensagem foi recebida e será tratada com o devido cuidado.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
   </main>
 
   <!-- ─── Footer ──────────────────────────────────────────────────── -->
@@ -513,7 +566,7 @@
 
         <div class="footer-brand">
           <div class="navbar-logo">ACA<span>FEG</span></div>
-          <p>Associação dos Cafeicultores Especiais de Andradas e Região. Cultivando excelência no sul de Minas Gerais
+          <p>Associação dos Cafeicultores do Bairro Gabirobal. Cultivando excelência no sul de Minas Gerais
             desde 2007.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/acafeg.andradas/" aria-label="Instagram">in</a>
@@ -526,32 +579,36 @@
         <div class="footer-col">
           <h4>Navegação</h4>
           <ul>
-            <li><a href="pages/aboutUs.html">A Associação</a></li>
-            <li><a href="pages/associates.html">Produtores</a></li>
-            <li><a href="pages/store.html">Nosso Café</a></li>
-            <li><a href="#institucional">Missão</a></li>
-            <li><a href="pages/contact.html">Contato</a></li>
+            <li><a href="aboutUs.html">A Associação</a></li>
+            <li><a href="associates.html">Associados</a></li>
+            <li><a href="store.html">Nosso Café</a></li>
+            <li><a href="../index.html#institucional">Missão, Valores e Visão</a></li>
+            <li><a href="contact.html">Contato</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Links Úteis</h4>
           <ul>
-            <li><a href="#">Certificações</a></li>
+            <li><a href="../index.html#projetos">Nossos Projetos</a></li>
             <li><a href="https://wa.me/5519999631138?text=Ol%C3%A1%2C%20gostaria%20de%20me%20tornar%20um%20associado%20da%20ACAFEG">Seja Associado</a></li>
-            <li><a href="#">Relatório Anual</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Contato</h4>
           <ul>
-            <li><a href="mailto:contato@acafeg.com.br">contato@acafeg.com.br</a></li>
-            <li><a href="tel:+55199996311388">(19) 9 996311388</a></li>
+            <li><a href="mailto:acafeg@yahoo.com.br">acafeg@yahoo.com.br</a></li>
+            <li><a href="tel:+5519999631138">(19) 9 99631138</a></li>
             <li><a href="#">Andradas – MG, 37795-000</a></li>
           </ul>
         </div>
 
+      </div>
+
+      <div class="footer-certs" style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,0.07)">
+        <img src="../img/Logos/Clac_Fairtrade.png" alt="Certificações CLAC e Fairtrade" loading="lazy" style="height:44px;width:auto" />
+        <img src="../img/Logos/BRFair.png" alt="Fairtrade Brasil" loading="lazy" style="height:32px;width:auto" />
       </div>
 
       <div class="footer-bottom">
@@ -561,7 +618,7 @@
     </div>
   </footer>
 
-  
+
 
   <script>
   // ── Nav mobile ──────────────────────────────────────────────────
@@ -732,6 +789,57 @@
       Enviar mensagem
     `;
   });
+
+  // ── Canal de ética (discreto) ────────────────────────────────────
+  const eticaForm = document.getElementById("etica-form");
+  if (eticaForm) {
+    eticaForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const mensagemEl = document.getElementById("etica-mensagem");
+      const mensagemErr = document.getElementById("etica-mensagem-error");
+      const mensagem = mensagemEl.value.trim();
+
+      if (mensagem.length < 10) {
+        mensagemEl.classList.add("error");
+        mensagemErr.classList.add("visible");
+        return;
+      }
+      mensagemEl.classList.remove("error");
+      mensagemErr.classList.remove("visible");
+
+      const btn = document.getElementById("etica-btn-submit");
+      btn.disabled = true;
+      const btnTextoOriginal = btn.textContent;
+      btn.textContent = "Enviando...";
+
+      const fd = new FormData();
+      fd.append("assunto", "Canal de Ética");
+      fd.append("nome", document.getElementById("etica-nome").value.trim() || "Não identificado");
+      fd.append("email", "");
+      fd.append("telefone", document.getElementById("etica-contato").value.trim());
+      fd.append("cidade", "Não informado");
+      fd.append("mensagem", mensagem);
+
+      try {
+        const res = await fetch("contato.php", { method: "POST", body: fd });
+        const data = await res.json();
+
+        if (data.ok) {
+          eticaForm.style.display = "none";
+          document.getElementById("etica-success").classList.add("visible");
+        } else {
+          alert(data.erro || "Não foi possível enviar agora. Tente novamente em instantes.");
+          btn.disabled = false;
+          btn.textContent = btnTextoOriginal;
+        }
+      } catch (err) {
+        alert("Não foi possível enviar. Verifique sua conexão e tente novamente.");
+        btn.disabled = false;
+        btn.textContent = btnTextoOriginal;
+      }
+    });
+  }
 
   // ── FAQ accordion ───────────────────────────────────────────────
   document.querySelectorAll(".faq-question").forEach(btn => {

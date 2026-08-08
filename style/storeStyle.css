@@ -7,12 +7,26 @@
       --neutro-medio: rgb(48, 43, 44);
       --neutro-claro: rgb(62, 56, 57);
       --branco: #ffffff;
+      --branco-60:    rgba(255,255,255,0.6);
+
+      /* Tema claro — tons quentes derivados da marca (creme + vinho) */
+      --creme: rgb(250, 246, 237);
+      --creme-medio: rgb(242, 233, 216);
+      --creme-escuro: rgb(232, 219, 194);
+      --tinta: rgb(40, 28, 25);
+      --tinta-70: rgba(40, 28, 25, 0.7);
+      --tinta-60: rgba(40, 28, 25, 0.6);
+      --tinta-45: rgba(40, 28, 25, 0.45);
+      --tinta-35: rgba(40, 28, 25, 0.35);
+      --linha: rgba(79, 29, 29, 0.12);
+      --accent: var(--vinho);
+      --accent-border: rgba(79, 29, 29, 0.3);
+
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'DM Sans', system-ui, sans-serif;
       --radius-md: 12px;
       --radius-lg: 20px;
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      --branco-60:    rgba(255,255,255,0.6);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,8 +34,8 @@
 
     body {
       font-family: var(--font-sans);
-      background: var(--neutro-escuro);
-      color: var(--branco);
+      background: var(--creme);
+      color: var(--tinta);
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -39,8 +53,14 @@
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--verde-lima);
+      color: var(--accent);
       margin-bottom: 14px;
+    }
+
+    /* Dentro do carrinho e rodapé (escuros) o acento volta ao verde-lima */
+    .hero-inner, .cart-drawer, footer {
+      --accent: var(--verde-lima);
+      --accent-border: rgba(195,217,65,0.3);
     }
 
     .section-title {
@@ -53,7 +73,7 @@
     .section-subtitle {
       font-size: 1rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
+      color: var(--tinta-60);
       max-width: 560px;
       line-height: 1.8;
       margin-top: 16px;
@@ -96,7 +116,7 @@
       opacity: 0.5;
     }
 
-    main { padding-top: 72px; }
+    /* navbar é fixed; o hero estende por baixo dela em vez de deixar um vão */
 
     /* ─── Navbar ─────────────────────────────────────────────────── */
     .navbar {
@@ -226,13 +246,13 @@
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover no-repeat;
-      filter: brightness(0.3) saturate(0.5);
+      filter: brightness(0.5) saturate(0.7);
     }
     .hero-inner::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 0%, rgba(35,31,32,0.4) 50%, rgba(35,31,32,0.97) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(35,31,32,0.22) 50%, rgba(35,31,32,0.78) 100%);
     }
     .hero-inner .container { position: relative; z-index: 2; }
 
@@ -259,6 +279,7 @@
       line-height: 1.08;
       max-width: 760px;
       margin-bottom: 24px;
+      color: var(--branco);
     }
     .hero-inner h1 em { font-style: italic; color: var(--ouro); }
 
@@ -333,8 +354,8 @@
 
     /* Product Card */
     .produto-card {
-      background: var(--neutro-medio);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--creme);
+      border: 1px solid var(--linha);
       border-radius: var(--radius-lg);
       overflow: hidden;
       display: flex;
@@ -344,8 +365,8 @@
 
     .produto-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(195,217,65,0.2);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      border-color: rgba(79,29,29,0.25);
+      box-shadow: 0 20px 60px rgba(79,29,29,0.14);
     }
 
     .produto-card[data-hidden="true"] {
@@ -459,7 +480,7 @@
 
     .produto-descricao {
       font-size: 0.88rem;
-      color: rgba(255,255,255,0.6);
+      color: var(--tinta-70);
       font-weight: 300;
       line-height: 1.7;
       margin-bottom: 16px;
@@ -482,7 +503,7 @@
     }
 
     .produto-footer {
-      border-top: 1px solid rgba(255,255,255,0.07);
+      border-top: 1px solid var(--linha);
       padding-top: 20px;
       display: flex;
       align-items: flex-end;
@@ -497,7 +518,7 @@
 
     .produto-peso {
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.35);
+      color: var(--tinta-35);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 2px;
@@ -507,7 +528,7 @@
       font-family: var(--font-serif);
       font-size: 1.8rem;
       font-weight: 300;
-      color: var(--branco);
+      color: var(--tinta);
       line-height: 1;
     }
 
@@ -515,7 +536,7 @@
       font-size: 0.9rem;
       font-family: var(--font-sans);
       vertical-align: super;
-      color: rgba(255,255,255,0.6);
+      color: var(--tinta-60);
     }
 
     /* Add to cart controls */
@@ -529,7 +550,7 @@
       display: flex;
       align-items: center;
       gap: 0;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid var(--linha);
       border-radius: 100px;
       overflow: hidden;
     }
@@ -539,7 +560,7 @@
       height: 32px;
       background: none;
       border: none;
-      color: rgba(255,255,255,0.7);
+      color: var(--tinta-70);
       font-size: 1.1rem;
       cursor: pointer;
       display: flex;
@@ -548,14 +569,14 @@
       transition: var(--transition);
       font-family: var(--font-sans);
     }
-    .qty-btn:hover { background: rgba(255,255,255,0.06); color: var(--branco); }
+    .qty-btn:hover { background: var(--creme-medio); color: var(--tinta); }
 
     .qty-value {
       min-width: 28px;
       text-align: center;
       font-size: 0.85rem;
       font-weight: 500;
-      color: var(--branco);
+      color: var(--tinta);
       padding: 0 2px;
       background: none;
       border: none;

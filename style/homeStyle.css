@@ -18,6 +18,19 @@
       --branco-90: rgba(255, 255, 255, 0.9);
       --branco-60: rgba(255, 255, 255, 0.6);
 
+      /* Tema claro — tons quentes derivados da marca (creme + vinho) */
+      --creme: rgb(250, 246, 237);
+      --creme-medio: rgb(242, 233, 216);
+      --creme-escuro: rgb(232, 219, 194);
+      --tinta: rgb(40, 28, 25);
+      --tinta-70: rgba(40, 28, 25, 0.7);
+      --tinta-60: rgba(40, 28, 25, 0.6);
+      --tinta-45: rgba(40, 28, 25, 0.45);
+      --tinta-30: rgba(40, 28, 25, 0.3);
+      --linha: rgba(79, 29, 29, 0.12);
+      --accent: var(--vinho);
+      --accent-border: rgba(79, 29, 29, 0.3);
+
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'DM Sans', system-ui, sans-serif;
 
@@ -48,8 +61,8 @@
 
     body {
       font-family: var(--font-sans);
-      background: var(--neutro-escuro);
-      color: var(--branco);
+      background: var(--creme);
+      color: var(--tinta);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -85,10 +98,16 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--verde-lima);
+      color: var(--accent);
       padding: 4px 14px;
-      border: 1px solid var(--verde-lima-30);
+      border: 1px solid var(--accent-border);
       border-radius: 100px;
+    }
+
+    /* Dentro de seções escuras (cta final, footer) o acento volta a ser o verde-lima */
+    .hero, .cta-final, footer {
+      --accent: var(--verde-lima);
+      --accent-border: var(--verde-lima-30);
     }
 
     /* ===================================================
@@ -291,16 +310,17 @@
       background-position: center 30%;
       /* parallax suave no desktop */
       background-attachment: fixed;
+      filter: brightness(1.2) saturate(0.95);
     }
 
-    /* overlay gradiente: vinho cobre base, escurece no topo para legibilidade */
+    /* overlay gradiente: vinho cobre a base, um pouco mais leve que o original para a foto não ficar tão escura */
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(160deg,
-          rgba(79, 29, 29, 0.78) 0%,
-          rgba(35, 31, 32, 0.55) 60%,
-          rgba(35, 31, 32, 0.75) 100%);
+          rgba(79, 29, 29, 0.55) 0%,
+          rgba(35, 31, 32, 0.35) 60%,
+          rgba(35, 31, 32, 0.55) 100%);
     }
 
     .hero-content {
@@ -417,7 +437,7 @@
 
     .section-header .section-sub {
       margin-top: 12px;
-      color: var(--branco-60);
+      color: var(--tinta-60);
       font-size: 1rem;
       font-weight: 300;
       max-width: 480px;
@@ -478,7 +498,7 @@
     =================================================== */
     .sobre {
       padding: 100px 0;
-      background: rgba(255, 255, 255, 0.02);
+      background: var(--creme-medio);
     }
 
     .sobre-grid {
@@ -524,7 +544,7 @@
     .sobre-text p {
       font-size: 0.95rem;
       font-weight: 300;
-      color: var(--branco-60);
+      color: var(--tinta-70);
       line-height: 1.8;
       margin-bottom: 16px;
     }
@@ -546,7 +566,7 @@
       gap: 32px;
       margin-top: 32px;
       padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--linha);
     }
 
     .sobre-stat strong {
@@ -554,14 +574,14 @@
       font-family: var(--font-serif);
       font-size: 2rem;
       font-weight: 600;
-      color: var(--verde-lima);
+      color: var(--vinho);
     }
 
     .sobre-stat span {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--branco-60);
+      color: var(--tinta-60);
     }
 
     @media (max-width: 900px) {
@@ -779,7 +799,7 @@
     =================================================== */
     .institucional {
       padding: 100px 0;
-      background: rgba(255, 255, 255, 0.015);
+      background: var(--creme);
     }
 
     .mvv-grid {
@@ -792,7 +812,8 @@
     .mvv-card {
       padding: 40px 32px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--creme-medio);
+      border: 1px solid var(--linha);
       position: relative;
       overflow: hidden;
     }
@@ -824,7 +845,7 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--branco-60);
+      color: var(--tinta-60);
       margin-bottom: 16px;
     }
 
@@ -839,7 +860,7 @@
     .mvv-card p {
       font-size: 0.88rem;
       font-weight: 300;
-      color: var(--branco-60);
+      color: var(--tinta-60);
       line-height: 1.8;
     }
 
@@ -853,7 +874,7 @@
     .mvv-valores-list li {
       font-size: 0.88rem;
       font-weight: 300;
-      color: var(--branco-60);
+      color: var(--tinta-60);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -907,6 +928,7 @@
       max-width: 700px;
       margin: 12px auto 20px;
       line-height: 1.2;
+      color: var(--branco);
     }
 
     .cta-final p {
@@ -1040,7 +1062,7 @@
       gap: 16px;
       margin: 0 auto 56px;
       width: fit-content;
-      color: var(--branco-60);
+      color: var(--tinta-60);
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -1069,7 +1091,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--branco-60);
+      color: var(--tinta-60);
     }
 
     .scroll-hint-line {
@@ -1106,7 +1128,7 @@
 =================================================== */
     .projetos {
       padding: 100px 0;
-      background: var(--neutro-escuro);
+      background: var(--creme-medio);
     }
 
     .projetos-grid {
@@ -1117,17 +1139,17 @@
     }
 
     .projeto-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(195, 217, 65, 0.1);
+      background: var(--creme);
+      border: 1px solid var(--linha);
       border-radius: var(--radius-lg);
       overflow: hidden;
       transition: var(--transition);
     }
 
     .projeto-card:hover {
-      border-color: rgba(195, 217, 65, 0.3);
+      border-color: rgba(79, 29, 29, 0.3);
       transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 40px rgba(79, 29, 29, 0.12);
     }
 
     .projeto-img-wrap {
@@ -1184,7 +1206,7 @@
     .projeto-body p {
       font-size: 0.9rem;
       font-weight: 300;
-      color: var(--branco-60);
+      color: var(--tinta-60);
       line-height: 1.75;
     }
 
@@ -1197,7 +1219,7 @@
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--verde-lima);
+      color: var(--vinho);
       transition: gap var(--transition);
     }
 

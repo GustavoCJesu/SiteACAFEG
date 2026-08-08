@@ -9,6 +9,18 @@
       --branco: #ffffff;
       --branco-60:    rgba(255,255,255,0.6);
       --branco-suave: rgba(255,255,255,0.85);
+
+      /* Tema claro — tons quentes derivados da marca (creme + vinho) */
+      --creme: rgb(250, 246, 237);
+      --creme-medio: rgb(242, 233, 216);
+      --tinta: rgb(40, 28, 25);
+      --tinta-70: rgba(40, 28, 25, 0.7);
+      --tinta-60: rgba(40, 28, 25, 0.6);
+      --tinta-45: rgba(40, 28, 25, 0.45);
+      --linha: rgba(79, 29, 29, 0.12);
+      --accent: var(--vinho);
+      --accent-border: rgba(79, 29, 29, 0.3);
+
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'DM Sans', system-ui, sans-serif;
       --radius-md: 12px;
@@ -22,8 +34,8 @@
 
     body {
       font-family: var(--font-sans);
-      background: var(--neutro-escuro);
-      color: var(--branco);
+      background: var(--creme);
+      color: var(--tinta);
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -42,8 +54,14 @@
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--verde-lima);
+      color: var(--accent);
       margin-bottom: 14px;
+    }
+
+    /* Dentro do hero e do rodapé (escuros) o acento volta a ser o verde-lima */
+    .hero-inner, footer {
+      --accent: var(--verde-lima);
+      --accent-border: rgba(195,217,65,0.3);
     }
 
     .section-title {
@@ -51,13 +69,13 @@
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 300;
       line-height: 1.15;
-      color: var(--branco);
+      color: var(--tinta);
     }
 
     .section-subtitle {
       font-size: 1rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
+      color: var(--tinta-60);
       max-width: 560px;
       line-height: 1.8;
       margin-top: 16px;
@@ -198,7 +216,7 @@
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=80') center/cover no-repeat;
-      filter: brightness(0.35) saturate(0.6);
+      filter: brightness(0.55) saturate(0.75);
     }
 
     .hero-inner::after {
@@ -208,8 +226,8 @@
       background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(35,31,32,0.3) 50%,
-        rgba(35,31,32,0.95) 100%
+        rgba(35,31,32,0.15) 50%,
+        rgba(35,31,32,0.75) 100%
       );
     }
 
@@ -241,6 +259,7 @@
       line-height: 1.08;
       max-width: 760px;
       margin-bottom: 24px;
+      color: var(--branco);
     }
 
     .hero-inner h1 em {
@@ -313,7 +332,7 @@
     }
 
     .origem-content p {
-      color: rgba(255,255,255,0.7);
+      color: var(--tinta-70);
       font-weight: 300;
       margin-bottom: 20px;
       font-size: 1.02rem;
@@ -323,7 +342,7 @@
       font-family: var(--font-serif);
       font-size: clamp(1.2rem, 1.8vw, 1.4rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.9);
+      color: var(--tinta);
       line-height: 1.7;
       font-style: italic;
     }
@@ -333,7 +352,7 @@
       gap: 32px;
       margin-top: 40px;
       padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid var(--linha);
     }
 
     .stat-item strong {
@@ -341,7 +360,7 @@
       font-family: var(--font-serif);
       font-size: 2.2rem;
       font-weight: 300;
-      color: var(--verde-lima);
+      color: var(--vinho);
       line-height: 1;
     }
 
@@ -349,7 +368,7 @@
       font-size: 0.78rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: var(--tinta-45);
       margin-top: 4px;
       display: block;
     }
@@ -362,7 +381,7 @@
     /* ─── Section: Timeline ────────────────────────────────────────── */
     .section-timeline {
       padding: 100px 0;
-      background: var(--neutro-medio);
+      background: var(--creme-medio);
     }
 
     .timeline {
@@ -398,14 +417,14 @@
 
     .timeline-content {
       padding: 28px 32px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--creme);
+      border: 1px solid var(--linha);
       border-radius: var(--radius-md);
       transition: border-color var(--transition);
     }
 
     .timeline-content:hover {
-      border-color: rgba(195,217,65,0.2);
+      border-color: rgba(79,29,29,0.3);
     }
 
     .timeline-item:nth-child(even) .timeline-content:first-child { order: 3; }
@@ -417,12 +436,12 @@
       font-size: 1.25rem;
       font-weight: 400;
       margin-bottom: 8px;
-      color: var(--branco);
+      color: var(--tinta);
     }
 
     .timeline-content p {
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.55);
+      color: var(--tinta-60);
       font-weight: 300;
       line-height: 1.7;
     }
@@ -660,17 +679,17 @@
 
     .territorio-tag {
       padding: 8px 18px;
-      border: 1px solid rgba(195,217,65,0.25);
+      border: 1px solid var(--linha);
       border-radius: 100px;
       font-size: 0.78rem;
       letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.7);
+      color: var(--tinta-70);
       transition: var(--transition);
     }
 
     .territorio-tag:hover {
-      border-color: var(--verde-lima);
-      color: var(--verde-lima);
+      border-color: var(--vinho);
+      color: var(--vinho);
     }
 
     .territorio-visual {
