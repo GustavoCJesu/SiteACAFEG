@@ -246,13 +246,13 @@
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover no-repeat;
-      filter: brightness(0.5) saturate(0.7);
+      filter: brightness(0.65) saturate(0.8);
     }
     .hero-inner::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 0%, rgba(35,31,32,0.22) 50%, rgba(35,31,32,0.78) 100%);
+      background: linear-gradient(to bottom, transparent 0%, rgba(35,31,32,0.14) 50%, rgba(35,31,32,0.62) 100%);
     }
     .hero-inner .container { position: relative; z-index: 2; }
 

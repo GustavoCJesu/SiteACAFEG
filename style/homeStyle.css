@@ -318,9 +318,9 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(160deg,
-          rgba(79, 29, 29, 0.55) 0%,
-          rgba(35, 31, 32, 0.35) 60%,
-          rgba(35, 31, 32, 0.55) 100%);
+          rgba(79, 29, 29, 0.40) 0%,
+          rgba(35, 31, 32, 0.20) 60%,
+          rgba(35, 31, 32, 0.38) 100%);
     }
 
     .hero-content {

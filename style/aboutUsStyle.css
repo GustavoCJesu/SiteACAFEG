@@ -216,7 +216,7 @@
       position: absolute;
       inset: 0;
       background: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600&q=80') center/cover no-repeat;
-      filter: brightness(0.55) saturate(0.75);
+      filter: brightness(0.70) saturate(0.85);
     }
 
     .hero-inner::after {
@@ -226,8 +226,8 @@
       background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(35,31,32,0.15) 50%,
-        rgba(35,31,32,0.75) 100%
+        rgba(35,31,32,0.10) 50%,
+        rgba(35,31,32,0.62) 100%
       );
     }
 
