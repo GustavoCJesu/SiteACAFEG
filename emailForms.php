@@ -6,7 +6,7 @@
 header('Content-Type: application/json; charset=utf-8');
 
 // ── Configurações ────────────────────────────────────────────────
-define('EMAIL_DESTINO', 'gustavo.jesuino1129@gmail.com');
+define('EMAIL_DESTINO', 'acafeg@yahoo.com.br');
 define('EMAIL_REMETENTE', 'noreply@acafeg.com.br');
 define('NOME_SITE', 'ACAFEG');
 
